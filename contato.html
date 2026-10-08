@@ -11,7 +11,8 @@
     <meta name="author" content="RadarIA">
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="style.css">
+    <script src="script.js?v=2.2" defer></script>
+    <link rel="stylesheet" href="style.css?v=2.2">
 
     <link rel="icon" type="image/png" href="radaria_icon.png" sizes="32x32">
 
@@ -23,6 +24,10 @@
         <div class="logo">
             <a href="index.html"><img src="radaria_top_logo.png" alt="Logo RadarIA"></a>
         </div>
+
+        <button class="menu-toggle" aria-label="Abrir menu">
+            ☰
+        </button>
 
         <nav>
             <a href="ferramentas.html">Ferramentas</a>
@@ -47,8 +52,67 @@
 
     </section>
 
+    <div class="contact-layout">
 
-    <section class="page-section">
+        <section class="contact-card">
+            <h2>Envie uma mensagem</h2>
+            <p style="color: #64748b; margin-bottom: 24px;">Preencha o formulário abaixo e retornaremos assim que possível.</p>
+
+            <form id="contact-form" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-name">Seu nome *</label>
+                        <input type="text" id="contact-name" class="form-control" placeholder="Ex: Israel Silva" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">Seu e-mail *</label>
+                        <input type="email" id="contact-email" class="form-control" placeholder="Ex: seuemail@exemplo.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-subject">Assunto / Finalidade *</label>
+                    <select id="contact-subject" class="form-control" required>
+                        <option value="sugestao">Sugestão de nova ferramenta de IA</option>
+                        <option value="artigo">Sugestão de tema para artigo</option>
+                        <option value="parceria">Proposta de parceria ou colaboração</option>
+                        <option value="feedback">Correção ou feedback sobre o site</option>
+                        <option value="outro">Outro assunto</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-message">Sua mensagem *</label>
+                    <textarea id="contact-message" class="form-control" placeholder="Escreva sua mensagem com detalhes..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar Mensagem</button>
+
+                <div id="form-feedback" class="form-feedback"></div>
+            </form>
+        </section>
+
+        <aside class="contact-sidebar">
+            <div class="info-sidebar-card">
+                <h3>⚡ RadarIA Direto</h3>
+                <p>Tem uma dica quente sobre um novo lançamento de IA? Nosso canal está aberto para a comunidade.</p>
+            </div>
+
+            <div class="info-sidebar-card">
+                <h3>⏱️ Tempo de Resposta</h3>
+                <p>Analisamos mensagens frequentemente e buscamos responder em até 48 horas úteis.</p>
+            </div>
+
+            <div class="info-sidebar-card">
+                <h3>🤝 Parcerias</h3>
+                <p>Projetos de tecnologia e criadores de conteúdo que queiram colaborar são muito bem-vindos.</p>
+            </div>
+        </aside>
+
+    </div>
+
+    <section class="page-section" style="margin-top: 40px;">
 
         <h2>Fale com o RadarIA</h2>
 
@@ -90,19 +154,6 @@
             O RadarIA também poderá receber propostas relacionadas a parcerias,
             divulgação, produção de conteúdo e outros projetos relacionados à
             tecnologia e inteligência artificial.
-        </p>
-
-    </section>
-
-
-    <section class="page-section">
-
-        <h2>Contato em breve</h2>
-
-        <p>
-            Os canais oficiais de contato ainda estão sendo estruturados.
-            Novas formas de comunicação serão adicionadas ao site conforme o
-            RadarIA evoluir.
         </p>
 
     </section>

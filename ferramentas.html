@@ -11,7 +11,8 @@
     <meta name="author" content="RadarIA">
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="style.css">
+    <script src="script.js?v=2.2" defer></script>
+    <link rel="stylesheet" href="style.css?v=2.2">
 
     <link rel="icon" type="image/png" href="radaria_icon.png" sizes="32x32">
 
@@ -23,6 +24,10 @@
         <div class="logo">
             <a href="index.html"><img src="radaria_top_logo.png" alt="Logo RadarIA"></a>
         </div>
+
+        <button class="menu-toggle" aria-label="Abrir menu">
+            ☰
+        </button>
 
         <nav>
             <a href="ferramentas.html">Ferramentas</a>
@@ -42,41 +47,102 @@
             </p>
         </section>
 
+        <section class="tools-search-section">
+            <div class="search-bar-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="tool-search" class="search-input" placeholder="Buscar ferramenta por nome, categoria ou utilidade..." aria-label="Buscar ferramenta">
+            </div>
+
+            <div class="filter-chips">
+                <button type="button" class="filter-chip active" data-filter="todas">Todas</button>
+                <button type="button" class="filter-chip" data-filter="escrita">Escrita</button>
+                <button type="button" class="filter-chip" data-filter="imagens">Imagens</button>
+                <button type="button" class="filter-chip" data-filter="video">Vídeo</button>
+                <button type="button" class="filter-chip" data-filter="programacao">Programação</button>
+                <button type="button" class="filter-chip" data-filter="produtividade">Produtividade</button>
+                <button type="button" class="filter-chip" data-filter="audio">Áudio & Música</button>
+            </div>
+
+            <div class="tools-meta-bar">
+                <span id="tools-count" class="tools-count">10 ferramentas encontradas</span>
+                <span>Filtro dinâmico</span>
+            </div>
+
+            <div id="no-results-msg" class="no-results">
+                <h3>Nenhuma ferramenta encontrada</h3>
+                <p>Tente buscar por outro termo ou selecione a categoria "Todas".</p>
+            </div>
+        </section>
+
         <section class="tools-grid">
-            <div class="tool-card">
+            <div class="tool-card" data-category="escrita produtividade programacao">
+                <span class="tool-tag">Assistente Geral</span>
                 <h2>ChatGPT</h2>
                 <p>Assistente de IA para escrever, responder perguntas e ajudar em diversas tarefas do dia a dia.</p>
                 <a href="chatgpt.html">Ver mais</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-category="escrita produtividade programacao">
+                <span class="tool-tag">Raciocínio & Código</span>
+                <h2>Claude</h2>
+                <p>IA da Anthropic destacada por escrita aprofundada, análise crítica e alta precisão de programação.</p>
+                <a href="claude.html">Ver mais</a>
+            </div>
+
+            <div class="tool-card" data-category="imagens">
+                <span class="tool-tag">Geração de Imagens</span>
                 <h2>Midjourney</h2>
                 <p>Ferramenta focada na criação de imagens com inteligência artificial a partir de comandos de texto.</p>
                 <a href="midjourney.html">Ver mais</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-category="video">
+                <span class="tool-tag">Criação de Vídeo</span>
                 <h2>Runway ML</h2>
                 <p>Plataforma de IA voltada para criação e edição de vídeos, imagens e conteúdos multimídia.</p>
                 <a href="runway.html">Ver mais</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-category="programacao produtividade">
+                <span class="tool-tag">IDE & Programação</span>
+                <h2>Cursor</h2>
+                <p>Editor de código integrado com IA projetado para acelerar o desenvolvimento de software.</p>
+                <a href="cursor.html">Ver mais</a>
+            </div>
+
+            <div class="tool-card" data-category="produtividade escrita">
+                <span class="tool-tag">Produtividade & Notas</span>
                 <h2>Notion AI</h2>
                 <p>Recurso de inteligência artificial integrado ao Notion para escrita, resumo e produtividade.</p>
                 <a href="notion.html">Ver mais</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-category="escrita produtividade">
+                <span class="tool-tag">Assistente Google</span>
                 <h2>Gemini</h2>
                 <p>Ferramenta de IA do Google para pesquisa, escrita, ideias e suporte em diferentes tarefas.</p>
                 <a href="gemini.html">Ver mais</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-category="produtividade pesquisa">
+                <span class="tool-tag">Buscador Inteligente</span>
                 <h2>Perplexity</h2>
                 <p>Buscador com IA que entrega respostas rápidas com contexto e referências úteis.</p>
                 <a href="perplexity.html">Ver mais</a>
+            </div>
+
+            <div class="tool-card" data-category="audio video">
+                <span class="tool-tag">Voz & Clonagem de Áudio</span>
+                <h2>ElevenLabs</h2>
+                <p>Plataforma líder em síntese e clonagem de voz ultra-realista em dezenas de idiomas com IA.</p>
+                <a href="elevenlabs.html">Ver mais</a>
+            </div>
+
+            <div class="tool-card" data-category="audio">
+                <span class="tool-tag">Composição Musical</span>
+                <h2>Suno</h2>
+                <p>Gere músicas completas com instrumentos, vocais e estilos variados a partir de prompts.</p>
+                <a href="suno.html">Ver mais</a>
             </div>
         </section>
     </main>

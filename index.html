@@ -11,8 +11,8 @@
     <meta name="author" content="RadarIA">
     <meta name="robots" content="index, follow">
 
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="script.js?v=2.2" defer></script>
+    <link rel="stylesheet" href="style.css?v=2.2">
 
     <meta name="google-site-verification" content="NH8bFxLGby8Bvwdi1g7GQOakWHas0kSHAoZ2n3vzGQ8">
 
@@ -66,9 +66,37 @@
                 Explore cada plataforma e descubra como ela pode ser utilizada.
             </p>
 
-            <a href="ferramentas.html" class="btn-primary">
-                Explorar Ferramentas
+            <a href="ferramentas.html" class="btn-primary" style="margin-bottom: 30px;">
+                Explorar Todas as Ferramentas
             </a>
+
+            <!-- Busca Rápida na Home -->
+            <div class="tools-search-section" style="margin-top: 35px; margin-bottom: 0;">
+                <div class="search-bar-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="tool-search" class="search-input" placeholder="Buscar ferramenta por nome, categoria ou função (ex: Claude, vídeo, código)..." aria-label="Buscar ferramenta">
+                </div>
+
+                <div class="filter-chips">
+                    <button type="button" class="filter-chip active" data-filter="todas">Todas</button>
+                    <button type="button" class="filter-chip" data-filter="escrita">Escrita</button>
+                    <button type="button" class="filter-chip" data-filter="imagens">Imagens</button>
+                    <button type="button" class="filter-chip" data-filter="video">Vídeo</button>
+                    <button type="button" class="filter-chip" data-filter="programacao">Programação</button>
+                    <button type="button" class="filter-chip" data-filter="produtividade">Produtividade</button>
+                    <button type="button" class="filter-chip" data-filter="audio">Áudio & Música</button>
+                </div>
+
+                <div class="tools-meta-bar">
+                    <span id="tools-count" class="tools-count">Ferramentas em destaque</span>
+                    <span>RadarIA Atualizado</span>
+                </div>
+
+                <div id="no-results-msg" class="no-results">
+                    <h3>Nenhuma ferramenta encontrada</h3>
+                    <p>Tente buscar por outro termo ou clique em "Todas".</p>
+                </div>
+            </div>
 
         </section>
 
@@ -79,55 +107,127 @@
 
             <div class="cards">
 
-                <div class="card">
-
+                <div class="card" data-category="escrita produtividade programacao">
+                    <span class="tool-tag">Assistente Geral</span>
                     <h3>ChatGPT</h3>
-
                     <p>
                         Assistente de inteligência artificial para escrita,
                         estudos, programação, criação de ideias e diversas
                         tarefas do dia a dia.
                     </p>
-
                     <a href="chatgpt.html" class="card-link">
                         Ver ferramenta
                     </a>
-
                 </div>
 
+                <div class="card" data-category="escrita produtividade programacao">
+                    <span class="tool-tag">Raciocínio & Código</span>
+                    <h3>Claude</h3>
+                    <p>
+                        IA avançada da Anthropic para raciocínio profundo,
+                        análise de textos extensos e geração precisa de software.
+                    </p>
+                    <a href="claude.html" class="card-link">
+                        Ver ferramenta
+                    </a>
+                </div>
 
-                <div class="card">
-
+                <div class="card" data-category="imagens">
+                    <span class="tool-tag">Geração de Imagens</span>
                     <h3>Midjourney</h3>
-
                     <p>
                         Plataforma de inteligência artificial especializada
                         na criação de imagens a partir de descrições e ideias
                         visuais.
                     </p>
-
                     <a href="midjourney.html" class="card-link">
                         Ver ferramenta
                     </a>
-
                 </div>
 
-
-                <div class="card">
-
+                <div class="card" data-category="video">
+                    <span class="tool-tag">Criação de Vídeo</span>
                     <h3>Runway ML</h3>
-
                     <p>
                         Plataforma de IA voltada para criação e edição de vídeos,
                         imagens e outros conteúdos multimídia.
                     </p>
-
                     <a href="runway.html" class="card-link">
                         Ver ferramenta
                     </a>
-
                 </div>
 
+                <div class="card" data-category="programacao produtividade">
+                    <span class="tool-tag">IDE & Programação</span>
+                    <h3>Cursor</h3>
+                    <p>
+                        Editor de código inteligente com IA integrada no fluxo
+                        de desenvolvimento para acelerar a criação de projetos.
+                    </p>
+                    <a href="cursor.html" class="card-link">
+                        Ver ferramenta
+                    </a>
+                </div>
+
+                <div class="card" data-category="audio video">
+                    <span class="tool-tag">Voz & Dublagem IA</span>
+                    <h3>ElevenLabs</h3>
+                    <p>
+                        Síntese e clonagem de voz hiper-realista em dezenas de idiomas
+                        para narrações, vídeos e podcasts.
+                    </p>
+                    <a href="elevenlabs.html" class="card-link">
+                        Ver ferramenta
+                    </a>
+                </div>
+
+                <div class="card" data-category="audio">
+                    <span class="tool-tag">Composição Musical</span>
+                    <h3>Suno</h3>
+                    <p>
+                        Composição de músicas completas com instrumentos, vocais
+                        e melodias personalizadas com inteligência artificial.
+                    </p>
+                    <a href="suno.html" class="card-link">
+                        Ver ferramenta
+                    </a>
+                </div>
+
+                <div class="card" data-category="produtividade escrita">
+                    <span class="tool-tag">Produtividade</span>
+                    <h3>Notion AI</h3>
+                    <p>
+                        Recurso de inteligência artificial integrado para notas,
+                        resumos, organização de tarefas e documentos.
+                    </p>
+                    <a href="notion.html" class="card-link">
+                        Ver ferramenta
+                    </a>
+                </div>
+
+                <div class="card" data-category="escrita produtividade">
+                    <span class="tool-tag">Assistente Google</span>
+                    <h3>Gemini</h3>
+                    <p>
+                        IA do Google conectada aos serviços da web para pesquisa,
+                        resumo, criação de textos e assistência multitarefa.
+                    </p>
+                    <a href="gemini.html" class="card-link">
+                        Ver ferramenta
+                    </a>
+                </div>
+
+                <div class="card" data-category="produtividade pesquisa">
+                    <span class="tool-tag">Buscador Inteligente</span>
+                    <h3>Perplexity</h3>
+                    <p>
+                        Buscador conversacional que entrega respostas sintetizadas
+                        com fontes e referências confiáveis em tempo real.
+                    </p>
+                    <a href="perplexity.html" class="card-link">
+                        Ver ferramenta
+                    </a>
+                </div>
 
                 <div class="tools-button">
 
@@ -229,6 +329,10 @@
 
                 <a href="categoria-produtividade.html" class="category-item">
                     Produtividade
+                </a>
+
+                <a href="categoria-audio.html" class="category-item">
+                    Áudio & Música
                 </a>
 
             </div>
