@@ -93,7 +93,62 @@ document.addEventListener('DOMContentLoaded', () => {
         filterTools();
     }
 
-    // 3. Formulário de Contato (contato.html)
+    // 3. Busca e Filtro de Artigos (artigos.html)
+    const articleSearchInput = document.getElementById('article-search');
+    const articleFilterChips = document.querySelectorAll('.article-filter-chip');
+    const articleCards = document.querySelectorAll('.articles-grid .article-card');
+    const articleCountDisplay = document.getElementById('articles-count');
+    const articleNoResultsMsg = document.getElementById('article-no-results');
+
+    if (articleCards.length > 0 && (articleSearchInput || articleFilterChips.length > 0)) {
+        let activeArticleCategory = 'todos';
+
+        function filterArticles() {
+            const query = articleSearchInput ? articleSearchInput.value.toLowerCase().trim() : '';
+            let visibleCount = 0;
+
+            articleCards.forEach(card => {
+                const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
+                const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+                const category = (card.getAttribute('data-category') || '').toLowerCase();
+
+                const matchesQuery = !query || title.includes(query) || desc.includes(query) || category.includes(query);
+                const matchesCategory = activeArticleCategory === 'todos' || category.includes(activeArticleCategory);
+
+                if (matchesQuery && matchesCategory) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (articleCountDisplay) {
+                articleCountDisplay.textContent = `${visibleCount} artigo${visibleCount === 1 ? '' : 's'} disponível${visibleCount === 1 ? '' : 'is'}`;
+            }
+
+            if (articleNoResultsMsg) {
+                articleNoResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        }
+
+        if (articleSearchInput) {
+            articleSearchInput.addEventListener('input', filterArticles);
+        }
+
+        articleFilterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                articleFilterChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeArticleCategory = chip.getAttribute('data-filter') || 'todos';
+                filterArticles();
+            });
+        });
+
+        filterArticles();
+    }
+
+    // 4. Formulário de Contato (contato.html)
     const contactForm = document.getElementById('contact-form');
     const formFeedback = document.getElementById('form-feedback');
 

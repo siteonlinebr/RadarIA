@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle/squircle -->
+  <rect width="128" height="128" rx="28" fill="#ffffff"/>
+  <rect x="2" y="2" width="124" height="124" rx="26" fill="none" stroke="#e2e8f0" stroke-width="3"/>
+  
+  <!-- Radar outer wave -->
+  <circle cx="64" cy="64" r="50" fill="none" stroke="#2563eb" stroke-width="4.5" stroke-opacity="0.25"/>
+  <!-- Radar mid wave -->
+  <circle cx="64" cy="64" r="37" fill="none" stroke="#2563eb" stroke-width="5" stroke-opacity="0.5"/>
+  <!-- Radar inner wave -->
+  <circle cx="64" cy="64" r="24" fill="none" stroke="#2563eb" stroke-width="5.5" stroke-opacity="0.85"/>
+  
+  <!-- Central core circle -->
+  <circle cx="64" cy="64" r="14" fill="url(#blueGrad)"/>
+  
+  <!-- Lightning bolt / AI energy inside core -->
+  <path d="M65.5 54 L58 64.5 L63.5 64.5 L62.5 74 L70 63.5 L64.5 63.5 Z" fill="#ffffff"/>
+</svg>

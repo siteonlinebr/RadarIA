@@ -2,161 +2,278 @@
 <html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Artigos sobre Inteligência Artificial | RadarIA</title>
+    <title>Artigos e Guias sobre Inteligência Artificial | RadarIA</title>
 
-    <meta name="description" content="Explore artigos sobre inteligência artificial, ferramentas de IA, criação de imagens, programação, estudos e produtividade. Confira guias e conteúdos sobre IA no RadarIA.">
+    <meta name="description" content="Explore artigos aprofundados, guias práticos e comparativos sobre inteligência artificial, engenharia de prompt, produtividade, programação, áudio e ferramentas de IA.">
 
     <meta name="author" content="RadarIA">
     <meta name="robots" content="index, follow">
 
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="script.js?v=3.0" defer></script>
+    <link rel="stylesheet" href="style.css?v=3.0">
 
-    <link rel="icon" href="radaria_icon.png" type="image/png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=3.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=3.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3.0">
+    <link rel="shortcut icon" href="favicon.ico?v=3.0">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
 </head>
-
 
 <body>
 
-<header>
-
-    <div class="logo">
-
-        <a href="index.html">
-            <img src="radaria_top_logo.png" alt="Logo RadarIA">
-        </a>
-
-    </div>
-
-    <button class="menu-toggle" aria-label="Abrir menu">
-        ☰
-    </button>
-
-    <nav>
-
-        <a href="ferramentas.html">Ferramentas</a>
-        <a href="categorias.html">Categorias</a>
-        <a href="artigos.html">Artigos</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="contato.html">Contato</a>
-
-    </nav>
-
-</header>
-
-
-<main class="page-content">
-
-
-    <section class="page-hero">
-
-        <h1>Artigos sobre Inteligência Artificial</h1>
-
-        <p>
-            Explore guias, listas e conteúdos sobre inteligência artificial,
-            ferramentas de IA, criação de conteúdo, programação, estudos e
-            diferentes aplicações da tecnologia.
-        </p>
-
-    </section>
-
-
-
-    <section class="articles-grid">
-
-
-        <div class="article-card">
-
-            <h2>10 Ferramentas de IA para Estudar Melhor</h2>
-
-            <p>
-                Conheça ferramentas de inteligência artificial que podem ajudar
-                nos estudos, pesquisas, organização de materiais e aprendizado.
-            </p>
-
-            <a href="artigo-estudar.html">
-                Ler artigo
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="radaria_top_logo.png" alt="Logo RadarIA">
             </a>
-
         </div>
 
+        <button class="menu-toggle" aria-label="Abrir menu">
+            ☰
+        </button>
 
-
-        <div class="article-card">
-
-            <h2>As Melhores IAs para Criar Imagens</h2>
-
-            <p>
-                Conheça ferramentas de inteligência artificial para criação de
-                imagens, ilustrações, conceitos visuais e diferentes tipos de
-                conteúdo digital.
-            </p>
-
-            <a href="artigo-imagens.html">
-                Ler artigo
-            </a>
-
-        </div>
-
-
-
-        <div class="article-card">
-
-            <h2>Ferramentas de IA para Programadores</h2>
-
-            <p>
-                Conheça ferramentas que podem auxiliar desenvolvedores na
-                escrita, compreensão, revisão e desenvolvimento de código.
-            </p>
-
-            <a href="artigo-programacao.html">
-                Ler artigo
-            </a>
-
-        </div>
-
-
-    </section>
-
-
-
-</main>
-
-
-
-<footer>
-
-    <div class="footer-content">
-
-        <h3>RadarIA ⚡</h3>
-
-
-        <div class="footer-links">
-
+        <nav>
             <a href="ferramentas.html">Ferramentas</a>
             <a href="categorias.html">Categorias</a>
             <a href="artigos.html">Artigos</a>
             <a href="sobre.html">Sobre</a>
             <a href="contato.html">Contato</a>
+        </nav>
+    </header>
 
+    <main class="page-content">
+
+        <section class="page-hero">
+            <h1>Artigos e Guias de Inteligência Artificial</h1>
+            <p>
+                Conteúdos práticos, análises imparciais e tutoriais passo a passo para ajudar você
+                a extrair o máximo potencial das ferramentas de IA na sua carreira, estudos e projetos.
+            </p>
+        </section>
+
+        <!-- Barra de Busca e Filtros de Artigos -->
+        <section class="tools-search-section">
+            <div class="search-bar-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="article-search" class="search-input" placeholder="Buscar artigo por tema, ferramenta ou palavra-chave..." aria-label="Buscar artigo">
+            </div>
+
+            <div class="filter-chips">
+                <button type="button" class="filter-chip article-filter-chip active" data-filter="todos">Todos</button>
+                <button type="button" class="filter-chip article-filter-chip" data-filter="guias">Guias & Prompts</button>
+                <button type="button" class="filter-chip article-filter-chip" data-filter="comparativos">Comparativos</button>
+                <button type="button" class="filter-chip article-filter-chip" data-filter="produtividade">Produtividade</button>
+                <button type="button" class="filter-chip article-filter-chip" data-filter="programacao">Programação</button>
+                <button type="button" class="filter-chip article-filter-chip" data-filter="audio">Áudio & Música</button>
+                <button type="button" class="filter-chip article-filter-chip" data-filter="negocios">Carreira & Renda</button>
+            </div>
+
+            <div class="tools-meta-bar">
+                <span id="articles-count" class="tools-count">10 artigos disponíveis</span>
+                <span>Conteúdo Atualizado</span>
+            </div>
+
+            <div id="article-no-results" class="no-results">
+                <h3>Nenhum artigo encontrado</h3>
+                <p>Tente buscar por outro termo ou clique no filtro "Todos".</p>
+            </div>
+        </section>
+
+        <!-- Grade de Artigos -->
+        <section class="articles-grid">
+
+            <!-- Artigo 1 -->
+            <div class="article-card" data-category="guias produtividade">
+                <div class="card-meta">
+                    <span class="tool-tag">Engenharia de Prompt</span>
+                    <span class="badge-new">Novo ⚡</span>
+                </div>
+                <h2>Como Criar Prompts Perfeitos para IA: Guia Prático com Exemplos</h2>
+                <p>
+                    Aprenda a fórmula estruturada (C-R-T-F-R) para conversar com ChatGPT, Claude e Gemini e receber respostas precisas, sem generalismos ou textos genéricos.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 09/10/2026 às 08:30</span>
+                    <span>⏱️ 6 min</span>
+                </div>
+                <a href="artigo-chatgpt-prompts.html">Ler artigo completo →</a>
+            </div>
+
+            <!-- Artigo 2 -->
+            <div class="article-card" data-category="comparativos">
+                <div class="card-meta">
+                    <span class="tool-tag">Comparativo 2026</span>
+                    <span class="badge-new">Novo ⚡</span>
+                </div>
+                <h2>ChatGPT vs Claude vs Gemini: Qual a Melhor IA em 2026?</h2>
+                <p>
+                    Um duelo direto e aprofundado entre os três gigantes da inteligência artificial: forças em escrita, raciocínio lógico, codificação, multimídia e limites de cada modelo.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 09/10/2026 às 08:00</span>
+                    <span>⏱️ 8 min</span>
+                </div>
+                <a href="artigo-chatgpt-vs-claude-vs-gemini.html">Ler artigo completo →</a>
+            </div>
+
+            <!-- Artigo 3 -->
+            <div class="article-card" data-category="produtividade guias">
+                <div class="card-meta">
+                    <span class="tool-tag">Produtividade</span>
+                    <span class="badge-new">Novo ⚡</span>
+                </div>
+                <h2>Como Usar IA para Dobrar sua Produtividade no Trabalho</h2>
+                <p>
+                    Métodos reais para delegar tarefas burocráticas: automação de e-mails, resumos executivos de reuniões no Notion AI, pesquisas sem anúncios no Perplexity e planilhas ágeis.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 09/10/2026 às 07:30</span>
+                    <span>⏱️ 7 min</span>
+                </div>
+                <a href="artigo-produtividade-trabalho.html">Ler artigo completo →</a>
+            </div>
+
+            <!-- Artigo 4 -->
+            <div class="article-card" data-category="programacao">
+                <div class="card-meta">
+                    <span class="tool-tag">Dev & Código</span>
+                    <span class="badge-new">Novo ⚡</span>
+                </div>
+                <h2>Cursor AI: O Editor que está Mudando o Desenvolvimento de Software</h2>
+                <p>
+                    Descubra por que programadores do mundo todo estão adotando o Cursor: edição simultânea de múltiplos arquivos com Composer, autocompletar preditivo e chat com o repositório.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 09/10/2026 às 07:00</span>
+                    <span>⏱️ 7 min</span>
+                </div>
+                <a href="artigo-cursor-programacao-futuro.html">Ler artigo completo →</a>
+            </div>
+
+            <!-- Artigo 5 -->
+            <div class="article-card" data-category="audio guias">
+                <div class="card-meta">
+                    <span class="tool-tag">Voz & Áudio IA</span>
+                    <span class="badge-new">Novo ⚡</span>
+                </div>
+                <h2>Clonagem de Voz e Áudio com IA: Como Funciona e Melhores Ferramentas</h2>
+                <p>
+                    Da síntese vocal robótica a timbres humanos indistinguíveis: saiba como o ElevenLabs clona vozes com poucos minutos de amostra para podcasts, audiobooks e dublagens multilíngues.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 09/10/2026 às 06:30</span>
+                    <span>⏱️ 6 min</span>
+                </div>
+                <a href="artigo-clonagem-voz-audio.html">Ler artigo completo →</a>
+            </div>
+
+            <!-- Artigo 6 -->
+            <div class="article-card" data-category="negocios">
+                <div class="card-meta">
+                    <span class="tool-tag">Carreira & Renda</span>
+                    <span class="badge-new">Novo ⚡</span>
+                </div>
+                <h2>Como Ganhar Dinheiro com Inteligência Artificial: Maneiras Reais</h2>
+                <p>
+                    Fuja das promessas mirabolantes. Conheça 5 caminhos práticos e legítimos para monetizar habilidades de IA: copywriting estratégico, ativos visuais, automações para PMEs e vídeo.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 09/10/2026 às 06:00</span>
+                    <span>⏱️ 8 min</span>
+                </div>
+                <a href="artigo-ganhar-dinheiro-ia.html">Ler artigo completo →</a>
+            </div>
+
+            <!-- Artigo 7 -->
+            <div class="article-card" data-category="audio guias">
+                <div class="card-meta">
+                    <span class="tool-tag">Música & Criação</span>
+                    <span class="badge-new">Novo ⚡</span>
+                </div>
+                <h2>Como Criar Músicas com IA usando o Suno: Passo a Passo</h2>
+                <p>
+                    Aprenda a compor canções completas com vocais, arranjos de guitarra, piano e batidas no Suno AI usando metatags estruturais como [Verse], [Chorus] e [Bridge].
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 09/10/2026 às 05:30</span>
+                    <span>⏱️ 6 min</span>
+                </div>
+                <a href="artigo-musica-suno-ia.html">Ler artigo completo →</a>
+            </div>
+
+            <!-- Artigo 8 (Original) -->
+            <div class="article-card" data-category="produtividade guias">
+                <div class="card-meta">
+                    <span class="tool-tag">Estudos & Aprendizado</span>
+                    <span style="font-size: 11px; color: #64748b; font-weight: 600;">Acervo RadarIA</span>
+                </div>
+                <h2>10 Ferramentas de IA para Estudar Melhor</h2>
+                <p>
+                    Conheça ferramentas de inteligência artificial que ajudam a sintetizar livros acadêmicos, criar mapas conceituais, resolver exercícios e acelerar a retenção de matérias.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 01/10/2026 às 14:20</span>
+                    <span>⏱️ 5 min</span>
+                </div>
+                <a href="artigo-estudar.html">Ler artigo completo →</a>
+            </div>
+
+            <!-- Artigo 9 (Original) -->
+            <div class="article-card" data-category="guias">
+                <div class="card-meta">
+                    <span class="tool-tag">Design & Imagens</span>
+                    <span style="font-size: 11px; color: #64748b; font-weight: 600;">Acervo RadarIA</span>
+                </div>
+                <h2>As Melhores IAs para Criar Imagens</h2>
+                <p>
+                    Um panorama completo dos principais motores geradores de artes e fotografias por texto: Midjourney, DALL-E 3, Stable Diffusion e ferramentas de design visual.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 28/09/2026 às 10:15</span>
+                    <span>⏱️ 5 min</span>
+                </div>
+                <a href="artigo-imagens.html">Ler artigo completo →</a>
+            </div>
+
+            <!-- Artigo 10 (Original) -->
+            <div class="article-card" data-category="programacao">
+                <div class="card-meta">
+                    <span class="tool-tag">Desenvolvimento</span>
+                    <span style="font-size: 11px; color: #64748b; font-weight: 600;">Acervo RadarIA</span>
+                </div>
+                <h2>Ferramentas de IA para Programadores</h2>
+                <p>
+                    Visão geral dos recursos de inteligência artificial que apoiam desenvolvedores na escrita, refatoração de código legado e busca ágil de bugs.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; margin-bottom: 15px;">
+                    <span>📅 25/09/2026 às 16:45</span>
+                    <span>⏱️ 5 min</span>
+                </div>
+                <a href="artigo-programacao.html">Ler artigo completo →</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h3>RadarIA ⚡</h3>
+            <div class="footer-links">
+                <a href="ferramentas.html">Ferramentas</a>
+                <a href="categorias.html">Categorias</a>
+                <a href="artigos.html">Artigos</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <p>&copy; 2026 RadarIA. Todos os direitos reservados.</p>
         </div>
-
-
-        <p>
-            &copy; 2026 RadarIA. Todos os direitos reservados.
-        </p>
-
-    </div>
-
-</footer>
-
+    </footer>
 
 </body>
 
