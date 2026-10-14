@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ferramentas de Inteligência Artificial | RadarIA</title>
+    <title>Todas as Ferramentas de Inteligência Artificial | RadarIA</title>
 
-    <meta name="description" content="Explore ferramentas de inteligência artificial para escrita, criação de imagens, vídeos, produtividade, programação e muito mais. Descubra novas ferramentas de IA no RadarIA.">
+    <meta name="description" content="Explore o catálogo completo de ferramentas de inteligência artificial do RadarIA. Filtre por escrita, imagens, programação, áudio, vídeo e modelos gratuitos ou freemium.">
 
     <meta name="author" content="RadarIA">
     <meta name="robots" content="index, follow">
 
-    <script src="script.js?v=3.0" defer></script>
-    <link rel="stylesheet" href="style.css?v=3.0">
+    <script src="script.js?v=4.0" defer></script>
+    <link rel="stylesheet" href="style.css?v=4.0">
 
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=4.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4.0">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=4.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4.0">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=4.0">
     <link rel="shortcut icon" href="favicon.ico?v=4.0">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <header>
         <div class="logo">
-            <a href="index.html"><img src="radaria_top_logo.png" alt="Logo RadarIA"></a>
+            <a href="index.html">
+                <img src="radaria_top_logo.png" alt="Logo RadarIA">
+            </a>
         </div>
 
         <button class="menu-toggle" aria-label="Abrir menu">
@@ -35,6 +39,8 @@
 
         <nav>
             <a href="ferramentas.html">Ferramentas</a>
+            <a href="comparador.html">Comparador</a>
+            <a href="prompts.html">Prompts Hub</a>
             <a href="categorias.html">Categorias</a>
             <a href="artigos.html">Artigos</a>
             <a href="sobre.html">Sobre</a>
@@ -43,20 +49,23 @@
     </header>
 
     <main class="page-content">
+
         <section class="page-hero">
-            <h1>Ferramentas de IA</h1>
+            <h1>Catálogo Completo de Ferramentas de IA</h1>
             <p>
-                Explore algumas das principais ferramentas de inteligência artificial
-                para escrita, imagens, vídeos, produtividade e muito mais.
+                Explore, compare e descubra as melhores plataformas de inteligência artificial
+                para escrita, código, imagens, vídeos, áudio e produtividade.
             </p>
         </section>
 
+        <!-- Seção de Busca e Filtros -->
         <section class="tools-search-section">
             <div class="search-bar-wrapper">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="tool-search" class="search-input" placeholder="Buscar ferramenta por nome, categoria ou utilidade..." aria-label="Buscar ferramenta">
+                <input type="text" id="tool-search" class="search-input" placeholder="Buscar ferramenta por nome, utilidade ou categoria (ex: DeepSeek, vídeo, grátis)..." aria-label="Buscar ferramenta">
             </div>
 
+            <!-- Linha 1: Categorias -->
             <div class="filter-chips">
                 <button type="button" class="filter-chip active" data-filter="todas">Todas</button>
                 <button type="button" class="filter-chip" data-filter="escrita">Escrita</button>
@@ -67,88 +76,241 @@
                 <button type="button" class="filter-chip" data-filter="audio">Áudio & Música</button>
             </div>
 
-            <div class="tools-meta-bar">
-                <span id="tools-count" class="tools-count">10 ferramentas encontradas</span>
-                <span>Filtro dinâmico</span>
+            <!-- Linha 2: Preço & Favoritos -->
+            <div class="filter-chips pricing-chips" style="margin-top: 10px;">
+                <button type="button" class="filter-chip active" data-price="todos">Todos os Preços</button>
+                <button type="button" class="filter-chip" data-price="free">🟢 100% Grátis</button>
+                <button type="button" class="filter-chip" data-price="freemium">⚡ Freemium</button>
+                <button type="button" class="filter-chip" data-price="paid">💎 Pagas</button>
+                <button type="button" class="filter-chip" data-price="favoritos">⭐ Meus Favoritos</button>
             </div>
 
-            <div id="no-results-msg" class="no-results">
+            <div class="tools-meta-bar">
+                <span id="tools-count" class="tools-count">15 ferramentas catalogadas</span>
+                <span>Clique na estrela (☆) para salvar nos favoritos</span>
+            </div>
+
+            <div id="no-results-msg" class="no-results" style="display: none;">
                 <h3>Nenhuma ferramenta encontrada</h3>
-                <p>Tente buscar por outro termo ou selecione a categoria "Todas".</p>
+                <p>Tente buscar por outro termo ou ajuste os filtros de categoria e preço.</p>
             </div>
         </section>
 
+        <!-- Grade de Ferramentas -->
         <section class="tools-grid">
-            <div class="tool-card" data-category="escrita produtividade programacao">
-                <span class="tool-tag">Assistente Geral</span>
+
+            <!-- 1. DeepSeek -->
+            <div class="tool-card" data-id="deepseek" data-category="programacao escrita produtividade" data-pricing="free">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Raciocínio & Código</span>
+                        <span class="price-badge free">Grátis</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="deepseek" aria-label="Favoritar DeepSeek">☆</button>
+                </div>
+                <h2>DeepSeek</h2>
+                <p>Modelo aberto de alto desempenho focado em raciocínio matemático, programação e resolução lógica sem custos.</p>
+                <a href="deepseek.html">Ver mais</a>
+            </div>
+
+            <!-- 2. ChatGPT -->
+            <div class="tool-card" data-id="chatgpt" data-category="escrita produtividade programacao" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Assistente Geral</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="chatgpt" aria-label="Favoritar ChatGPT">☆</button>
+                </div>
                 <h2>ChatGPT</h2>
-                <p>Assistente de IA para escrever, responder perguntas e ajudar em diversas tarefas do dia a dia.</p>
+                <p>Assistente de IA para escrever, responder perguntas, analisar dados, conversar por voz e apoiar no dia a dia.</p>
                 <a href="chatgpt.html">Ver mais</a>
             </div>
 
-            <div class="tool-card" data-category="escrita produtividade programacao">
-                <span class="tool-tag">Raciocínio & Código</span>
+            <!-- 3. Claude -->
+            <div class="tool-card" data-id="claude" data-category="escrita produtividade programacao" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Raciocínio & Código</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="claude" aria-label="Favoritar Claude">☆</button>
+                </div>
                 <h2>Claude</h2>
-                <p>IA da Anthropic destacada por escrita aprofundada, análise crítica e alta precisão de programação.</p>
+                <p>IA da Anthropic destacada por escrita aprofundada de tom humano, análise de livros e código de alta precisão.</p>
                 <a href="claude.html">Ver mais</a>
             </div>
 
-            <div class="tool-card" data-category="imagens">
-                <span class="tool-tag">Geração de Imagens</span>
+            <!-- 4. v0 by Vercel -->
+            <div class="tool-card" data-id="v0" data-category="programacao produtividade" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Design & Frontend</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="v0" aria-label="Favoritar v0">☆</button>
+                </div>
+                <h2>v0 by Vercel</h2>
+                <p>Geração de interfaces web completas, páginas interativas e componentes em React e Tailwind CSS a partir de texto.</p>
+                <a href="v0.html">Ver mais</a>
+            </div>
+
+            <!-- 5. FLUX.1 -->
+            <div class="tool-card" data-id="flux" data-category="imagens" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Geração de Imagens</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="flux" aria-label="Favoritar FLUX.1">☆</button>
+                </div>
+                <h2>FLUX.1</h2>
+                <p>Gerador de imagens com 12 bilhões de parâmetros, textos legíveis em ilustrações, mãos perfeitas e fotorrealismo.</p>
+                <a href="flux.html">Ver mais</a>
+            </div>
+
+            <!-- 6. Midjourney -->
+            <div class="tool-card" data-id="midjourney" data-category="imagens" data-pricing="paid">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Geração de Imagens</span>
+                        <span class="price-badge paid">Pago</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="midjourney" aria-label="Favoritar Midjourney">☆</button>
+                </div>
                 <h2>Midjourney</h2>
-                <p>Ferramenta focada na criação de imagens com inteligência artificial a partir de comandos de texto.</p>
+                <p>Ferramenta artística focada na criação de conceitos visuais e imagens cinematográficas por comandos de texto.</p>
                 <a href="midjourney.html">Ver mais</a>
             </div>
 
-            <div class="tool-card" data-category="video">
-                <span class="tool-tag">Criação de Vídeo</span>
+            <!-- 7. Runway ML -->
+            <div class="tool-card" data-id="runway" data-category="video" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Criação de Vídeo</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="runway" aria-label="Favoritar Runway ML">☆</button>
+                </div>
                 <h2>Runway ML</h2>
-                <p>Plataforma de IA voltada para criação e edição de vídeos, imagens e conteúdos multimídia.</p>
+                <p>Plataforma de IA voltada para criação e edição de vídeos (Gen-3 Alpha), remoção de fundos e pós-produção.</p>
                 <a href="runway.html">Ver mais</a>
             </div>
 
-            <div class="tool-card" data-category="programacao produtividade">
-                <span class="tool-tag">IDE & Programação</span>
+            <!-- 8. Kling AI -->
+            <div class="tool-card" data-id="kling" data-category="video" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Vídeo Cinematográfico</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="kling" aria-label="Favoritar Kling AI">☆</button>
+                </div>
+                <h2>Kling AI</h2>
+                <p>Geração de vídeos de alta resolução com física realista, controle de câmera 3D e animação dinâmica de fotos.</p>
+                <a href="kling.html">Ver mais</a>
+            </div>
+
+            <!-- 9. Cursor -->
+            <div class="tool-card" data-id="cursor" data-category="programacao produtividade" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">IDE & Programação</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="cursor" aria-label="Favoritar Cursor">☆</button>
+                </div>
                 <h2>Cursor</h2>
-                <p>Editor de código integrado com IA projetado para acelerar o desenvolvimento de software.</p>
+                <p>Editor de código integrado com IA projetado para acelerar o desenvolvimento de software e edição multi-arquivo.</p>
                 <a href="cursor.html">Ver mais</a>
             </div>
 
-            <div class="tool-card" data-category="produtividade escrita">
-                <span class="tool-tag">Produtividade & Notas</span>
-                <h2>Notion AI</h2>
-                <p>Recurso de inteligência artificial integrado ao Notion para escrita, resumo e produtividade.</p>
-                <a href="notion.html">Ver mais</a>
-            </div>
-
-            <div class="tool-card" data-category="escrita produtividade">
-                <span class="tool-tag">Assistente Google</span>
-                <h2>Gemini</h2>
-                <p>Ferramenta de IA do Google para pesquisa, escrita, ideias e suporte em diferentes tarefas.</p>
-                <a href="gemini.html">Ver mais</a>
-            </div>
-
-            <div class="tool-card" data-category="produtividade pesquisa">
-                <span class="tool-tag">Buscador Inteligente</span>
-                <h2>Perplexity</h2>
-                <p>Buscador com IA que entrega respostas rápidas com contexto e referências úteis.</p>
-                <a href="perplexity.html">Ver mais</a>
-            </div>
-
-            <div class="tool-card" data-category="audio video">
-                <span class="tool-tag">Voz & Clonagem de Áudio</span>
+            <!-- 10. ElevenLabs -->
+            <div class="tool-card" data-id="elevenlabs" data-category="audio video" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Voz & Clonagem de Áudio</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="elevenlabs" aria-label="Favoritar ElevenLabs">☆</button>
+                </div>
                 <h2>ElevenLabs</h2>
-                <p>Plataforma líder em síntese e clonagem de voz ultra-realista em dezenas de idiomas com IA.</p>
+                <p>Plataforma líder em síntese e clonagem de voz humana ultra-realista em dezenas de línguas para vídeos e podcasts.</p>
                 <a href="elevenlabs.html">Ver mais</a>
             </div>
 
-            <div class="tool-card" data-category="audio">
-                <span class="tool-tag">Composição Musical</span>
+            <!-- 11. Suno -->
+            <div class="tool-card" data-id="suno" data-category="audio" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Música & Composição</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="suno" aria-label="Favoritar Suno">☆</button>
+                </div>
                 <h2>Suno</h2>
-                <p>Gere músicas completas com instrumentos, vocais e estilos variados a partir de prompts.</p>
+                <p>Crie músicas completas com instrumentos, vocais expressivos e múltiplos gêneros a partir de simples ideias.</p>
                 <a href="suno.html">Ver mais</a>
             </div>
+
+            <!-- 12. Gamma AI -->
+            <div class="tool-card" data-id="gamma" data-category="produtividade" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Apresentações</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="gamma" aria-label="Favoritar Gamma AI">☆</button>
+                </div>
+                <h2>Gamma AI</h2>
+                <p>Geração de apresentações de slides, páginas e relatórios visuais com diagramação profissional com 1 clique.</p>
+                <a href="gamma.html">Ver mais</a>
+            </div>
+
+            <!-- 13. Notion AI -->
+            <div class="tool-card" data-id="notion" data-category="produtividade escrita" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Produtividade & Notas</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="notion" aria-label="Favoritar Notion AI">☆</button>
+                </div>
+                <h2>Notion AI</h2>
+                <p>Recurso de inteligência artificial integrado ao Notion para escrita, atas de reunião, resumos e gestão de projetos.</p>
+                <a href="notion.html">Ver mais</a>
+            </div>
+
+            <!-- 14. Gemini -->
+            <div class="tool-card" data-id="gemini" data-category="escrita produtividade" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Assistente Google</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="gemini" aria-label="Favoritar Gemini">☆</button>
+                </div>
+                <h2>Gemini</h2>
+                <p>Ferramenta de IA do Google para pesquisa na web em tempo real, integração com o Workspace e suporte multimídia.</p>
+                <a href="gemini.html">Ver mais</a>
+            </div>
+
+            <!-- 15. Perplexity -->
+            <div class="tool-card" data-id="perplexity" data-category="produtividade pesquisa" data-pricing="freemium">
+                <div class="card-header-row">
+                    <div class="tags-wrapper">
+                        <span class="tool-tag">Buscador Inteligente</span>
+                        <span class="price-badge freemium">Freemium</span>
+                    </div>
+                    <button type="button" class="fav-btn" data-id="perplexity" aria-label="Favoritar Perplexity">☆</button>
+                </div>
+                <h2>Perplexity</h2>
+                <p>Buscador conversacional com IA que entrega respostas estruturadas com fontes citadas em tempo real.</p>
+                <a href="perplexity.html">Ver mais</a>
+            </div>
+
         </section>
+
     </main>
 
     <footer>
@@ -156,7 +318,10 @@
             <h3>RadarIA ⚡</h3>
             <div class="footer-links">
                 <a href="ferramentas.html">Ferramentas</a>
+                <a href="comparador.html">Comparador</a>
+                <a href="prompts.html">Prompts Hub</a>
                 <a href="categorias.html">Categorias</a>
+                <a href="artigos.html">Artigos</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="contato.html">Contato</a>
             </div>
@@ -165,4 +330,5 @@
     </footer>
 
 </body>
+
 </html>

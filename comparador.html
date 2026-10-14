@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Duelo de IAs: Comparador Direto de Ferramentas | RadarIA</title>
+
+    <meta name="description" content="Compare as principais inteligências artificiais lado a lado: ChatGPT vs Claude, DeepSeek vs ChatGPT, Midjourney vs Flux, Cursor vs Copilot e muito mais.">
+
+    <meta name="author" content="RadarIA">
+    <meta name="robots" content="index, follow">
+
+    <script src="script.js?v=4.0" defer></script>
+    <link rel="stylesheet" href="style.css?v=4.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=4.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=4.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=4.0">
+    <link rel="shortcut icon" href="favicon.ico?v=4.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="radaria_top_logo.png" alt="RadarIA">
+            </a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Abrir menu">
+            ☰
+        </button>
+
+        <nav>
+            <a href="ferramentas.html">Ferramentas</a>
+            <a href="comparador.html">Comparador</a>
+            <a href="prompts.html">Prompts Hub</a>
+            <a href="categorias.html">Categorias</a>
+            <a href="artigos.html">Artigos</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main class="page-content">
+
+        <section class="page-hero">
+            <h1>Duelo de IAs: Comparador Direto</h1>
+            <p>
+                Colocamos as ferramentas de inteligência artificial frente a frente para ajudar você a decidir
+                qual plataforma atende melhor às suas necessidades reais de trabalho, estudo e criação.
+            </p>
+        </section>
+
+        <!-- Seletor de Batalhas -->
+        <div class="battle-selector-tabs">
+            <button type="button" class="battle-tab active" data-battle="chatgpt-claude">🥊 ChatGPT vs Claude</button>
+            <button type="button" class="battle-tab" data-battle="deepseek-chatgpt">⚡ DeepSeek vs ChatGPT</button>
+            <button type="button" class="battle-tab" data-battle="midjourney-flux">🎨 Midjourney vs FLUX.1</button>
+            <button type="button" class="battle-tab" data-battle="cursor-copilot">💻 Cursor vs Copilot</button>
+            <button type="button" class="battle-tab" data-battle="runway-kling">🎬 Runway vs Kling AI</button>
+            <button type="button" class="battle-tab" data-battle="elevenlabs-suno">🎙️ ElevenLabs vs Suno</button>
+        </div>
+
+        <!-- DUELO 1: ChatGPT vs Claude -->
+        <div class="comparison-box" data-battle="chatgpt-claude">
+            <div class="vs-header">
+                <div class="contender-card">
+                    <span class="price-badge freemium">Freemium</span>
+                    <h3>ChatGPT</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">OpenAI • Assistente Multimodal Geral</p>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="contender-card">
+                    <span class="price-badge freemium">Freemium</span>
+                    <h3>Claude</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Anthropic • Raciocínio, Análise & Código</p>
+                </div>
+            </div>
+
+            <div class="comparison-grid">
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">ChatGPT (OpenAI)</h4>
+                    <ul class="spec-list">
+                        <li><strong>Plano Grátis:</strong> Acesso ao GPT-4o mini e cotas dinâmicas do GPT-4o.</li>
+                        <li><strong>Planos Pagos:</strong> Plus (US$ 20/mês) e Pro (US$ 200/mês).</li>
+                        <li><strong>Forças:</strong> Modo de Voz avançado ultra-fluido, loja de GPTs customizados, geração de imagens DALL-E integrada e execução nativa de código Python para análise de dados.</li>
+                        <li><strong>Fraquezas:</strong> Respostas às vezes soam padronizadas e com clichês; menor capacidade em redação profunda sem instruções estritas.</li>
+                        <li><strong>Melhor Para:</strong> Produtividade geral diária, conversação por voz, criação de agentes e tarefas multimídia do dia a dia.</li>
+                    </ul>
+                    <a href="chatgpt.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do ChatGPT →</a>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">Claude (Anthropic)</h4>
+                    <ul class="spec-list">
+                        <li><strong>Plano Grátis:</strong> Acesso diário com limite de mensagens ao Claude Sonnet.</li>
+                        <li><strong>Planos Pagos:</strong> Claude Pro (US$ 20/mês).</li>
+                        <li><strong>Forças:</strong> Tom de escrita extremamente natural e humano, leitura impecável de documentos e livros de centenas de páginas, recurso de <em>Artifacts</em> para testar código na tela e raciocínio lógico de ponta.</li>
+                        <li><strong>Fraquezas:</strong> Não possui gerador de imagens embutido nem modo de voz interativo nativo na web; limite de mensagens mais rigoroso no plano gratuito.</li>
+                        <li><strong>Melhor Para:</strong> Programadores, pesquisadores, redatores, advogados e quem analisa livros ou códigos complexos.</li>
+                    </ul>
+                    <a href="claude.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do Claude →</a>
+                </div>
+            </div>
+
+            <div class="verdict-box">
+                <h4>🏆 Veredito do RadarIA</h4>
+                <p style="color: #334155; line-height: 1.6; margin: 0;">
+                    Se você busca um assistente canivete-suíço que gera imagens, conversa por voz e faz de tudo um pouco, o <strong>ChatGPT</strong> continua sendo a escolha mais completa. Mas se o seu objetivo primordial é escrever textos com tom genuinamente humano, analisar contratos ou programar sem alucinações, o <strong>Claude</strong> entrega um resultado técnico nitidamente superior.
+                </p>
+            </div>
+        </div>
+
+        <!-- DUELO 2: DeepSeek vs ChatGPT -->
+        <div class="comparison-box" data-battle="deepseek-chatgpt" style="display: none;">
+            <div class="vs-header">
+                <div class="contender-card">
+                    <span class="price-badge free">100% Grátis</span>
+                    <h3>DeepSeek</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">DeepSeek AI • Código Aberto & Raciocínio R1</p>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="contender-card">
+                    <span class="price-badge freemium">Freemium</span>
+                    <h3>ChatGPT</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">OpenAI • Ecossistema Proprietário Líder</p>
+                </div>
+            </div>
+
+            <div class="comparison-grid">
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">DeepSeek</h4>
+                    <ul class="spec-list">
+                        <li><strong>Custo:</strong> 100% gratuito no app e web; API até 90% mais barata que rivais.</li>
+                        <li><strong>Privacidade:</strong> Pesos abertos; pode rodar 100% offline no seu próprio computador.</li>
+                        <li><strong>Forças:</strong> Capacidade de raciocínio lógico-matemático de ponta (modelo R1), visualização do pensamento interno da IA e excelente performance em algoritmos.</li>
+                        <li><strong>Fraquezas:</strong> Servidores públicos às vezes sofrem com sobrecarga de acessos em horários de pico; não possui gerador de imagem integrado.</li>
+                        <li><strong>Melhor Para:</strong> Estudantes de exatas, devs e defensores de código aberto e privacidade.</li>
+                    </ul>
+                    <a href="deepseek.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do DeepSeek →</a>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">ChatGPT</h4>
+                    <ul class="spec-list">
+                        <li><strong>Custo:</strong> Gratuito com cotas; US$ 20/mês para o plano ilimitado Plus.</li>
+                        <li><strong>Privacidade:</strong> Modelo fechado em nuvem da OpenAI.</li>
+                        <li><strong>Forças:</strong> Alta estabilidade de servidores, aplicativo móvel polido, integração com DALL-E, GPTs customizados e navegação web robusta.</li>
+                        <li><strong>Fraquezas:</strong> Preço de US$ 20/mês pode ser elevado no Brasil devido à cotação do dólar; modelo proprietário fechado.</li>
+                        <li><strong>Melhor Para:</strong> Usuários corporativos e profissionais que precisam de 99.9% de disponibilidade.</li>
+                    </ul>
+                    <a href="chatgpt.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do ChatGPT →</a>
+                </div>
+            </div>
+
+            <div class="verdict-box">
+                <h4>🏆 Veredito do RadarIA</h4>
+                <p style="color: #334155; line-height: 1.6; margin: 0;">
+                    Para resolver problemas lógicos, estudar matemática ou codificar sem gastar um centavo, o <strong>DeepSeek</strong> é uma vitória avassaladora de custo-benefício. Já para quem precisa de estabilidade contínua no expediente de trabalho sem filas de espera e prefere uma experiência com voz e imagem integradas, o <strong>ChatGPT</strong> ainda garante mais confiabilidade operacional.
+                </p>
+            </div>
+        </div>
+
+        <!-- DUELO 3: Midjourney vs FLUX.1 -->
+        <div class="comparison-box" data-battle="midjourney-flux" style="display: none;">
+            <div class="vs-header">
+                <div class="contender-card">
+                    <span class="price-badge paid">Pago</span>
+                    <h3>Midjourney</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Midjourney, Inc. • Estética Artística & Fotográfica</p>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="contender-card">
+                    <span class="price-badge freemium">Freemium</span>
+                    <h3>FLUX.1</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Black Forest Labs • Texto Legível & Realismo Aberto</p>
+                </div>
+            </div>
+
+            <div class="comparison-grid">
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">Midjourney</h4>
+                    <ul class="spec-list">
+                        <li><strong>Preço:</strong> Não possui plano grátis; planos começam em US$ 10/mês.</li>
+                        <li><strong>Interface:</strong> Discord ou interface web dedicada (para quem já tem conta ativa).</li>
+                        <li><strong>Forças:</strong> Iluminação cinematográfica natural incomparável, "estilo artístico" intrínseco e excelente renderização de texturas como peles e tecidos.</li>
+                        <li><strong>Fraquezas:</strong> Dificuldade com textos longos ou palavras exatas dentro da imagem; código 100% fechado; sem versão para rodar localmente.</li>
+                        <li><strong>Melhor Para:</strong> Conceitos visuais para cinema, publicidade, moda e ilustrações artísticas prontas.</li>
+                    </ul>
+                    <a href="midjourney.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do Midjourney →</a>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">FLUX.1</h4>
+                    <ul class="spec-list">
+                        <li><strong>Preço:</strong> Versão aberta Schnell grátis; Dev aberta para pesquisa; Pro via API.</li>
+                        <li><strong>Interface:</strong> Web (plataformas parceiras), ComfyUI e geradores locais.</li>
+                        <li><strong>Forças:</strong> Renderização perfeita de textos e logotipos em placas e roupas, obediência cirúrgica a prompts complexos e poses corporais realistas.</li>
+                        <li><strong>Fraquezas:</strong> A versão local exige placas de vídeo com pelo menos 12 GB de VRAM para rodar com rapidez.</li>
+                        <li><strong>Melhor Para:</strong> Designers gráficos, mockups de marcas, produtos e ilustradores que precisam de textos nítidos.</li>
+                    </ul>
+                    <a href="flux.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do FLUX.1 →</a>
+                </div>
+            </div>
+
+            <div class="verdict-box">
+                <h4>🏆 Veredito do RadarIA</h4>
+                <p style="color: #334155; line-height: 1.6; margin: 0;">
+                    Se a imagem requer frases legíveis, rótulos de embalagens ou controle exato de cada objeto, o <strong>FLUX.1</strong> é o vencedor absoluto. Porém, se o objetivo é produzir uma pintura mágica, pôster cinematográfico ou retrato editorial onde a atmosfera artística importa mais do que regras estritas de texto, o <strong>Midjourney</strong> ainda mantém o toque visual mais sedutor do mercado.
+                </p>
+            </div>
+        </div>
+
+        <!-- DUELO 4: Cursor vs GitHub Copilot -->
+        <div class="comparison-box" data-battle="cursor-copilot" style="display: none;">
+            <div class="vs-header">
+                <div class="contender-card">
+                    <span class="price-badge freemium">Freemium</span>
+                    <h3>Cursor</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Anysphere • Editor Completo Multi-Arquivo</p>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="contender-card">
+                    <span class="price-badge paid">Pago</span>
+                    <h3>GitHub Copilot</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Microsoft/GitHub • Extensão Oficial para IDEs</p>
+                </div>
+            </div>
+
+            <div class="comparison-grid">
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">Cursor AI</h4>
+                    <ul class="spec-list">
+                        <li><strong>Modelo:</strong> IDE independente baseada no VS Code (com todas as extensões).</li>
+                        <li><strong>Plano Grátis:</strong> 14 dias de Pro de teste e cotas mensais gratuitas.</li>
+                        <li><strong>Forças:</strong> Composer que cria e altera 10 arquivos simultaneamente, autocompletar que prevê os próximos passos do cursor e chat indexado com todo o repositório (`@Codebase`).</li>
+                        <li><strong>Fraquezas:</strong> Exige usar o aplicativo do Cursor (embora seja idêntico ao VS Code).</li>
+                        <li><strong>Melhor Para:</strong> Quem quer acelerar o desenvolvimento de ponta a ponta e prototipar sistemas completos.</li>
+                    </ul>
+                    <a href="cursor.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do Cursor →</a>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">GitHub Copilot</h4>
+                    <ul class="spec-list">
+                        <li><strong>Modelo:</strong> Extensão instalável em VS Code, JetBrains, Visual Studio e Neovim.</li>
+                        <li><strong>Plano Grátis:</strong> Plano individual pago (US$ 10/mês); gratuito para estudantes elegíveis.</li>
+                        <li><strong>Forças:</strong> Integração nativa no ecossistema do GitHub e suporte a empresas com políticas de compliance estritas.</li>
+                        <li><strong>Fraquezas:</strong> A velocidade de iteração multi-arquivo e a inteligência contextual são sensivelmente inferiores às do Cursor.</li>
+                        <li><strong>Melhor Para:</strong> Equipes corporativas que não podem trocar de IDE ou já possuem licenças da Microsoft.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="verdict-box">
+                <h4>🏆 Veredito do RadarIA</h4>
+                <p style="color: #334155; line-height: 1.6; margin: 0;">
+                    O <strong>Cursor</strong> representa uma evolução geracional sobre o Copilot tradicional. A capacidade do Cursor de criar arquiteturas inteiras, refatorar rotas e components em lote faz o programador economizar horas reais de digitação mecânica. O <strong>GitHub Copilot</strong> continua relevante em ambientes corporativos rígidos que proíbem o download de novos programas.
+                </p>
+            </div>
+        </div>
+
+        <!-- DUELO 5: Runway vs Kling AI -->
+        <div class="comparison-box" data-battle="runway-kling" style="display: none;">
+            <div class="vs-header">
+                <div class="contender-card">
+                    <span class="price-badge freemium">Freemium</span>
+                    <h3>Runway ML</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Runway • Suíte de Edição Multimídia e Gen-3 Alpha</p>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="contender-card">
+                    <span class="price-badge freemium">Freemium</span>
+                    <h3>Kling AI</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Kuaishou • Física Realista & Clipes Extensos</p>
+                </div>
+            </div>
+
+            <div class="comparison-grid">
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">Runway ML (Gen-3)</h4>
+                    <ul class="spec-list">
+                        <li><strong>Preço:</strong> 125 créditos grátis de boas-vindas; planos a partir de US$ 12/mês.</li>
+                        <li><strong>Forças:</strong> Suíte completa com remoção de fundo (Green Screen), controle de movimento de câmera em 3 eixos, sincronização de áudio e consistência de estilo publicitário.</li>
+                        <li><strong>Fraquezas:</strong> Créditos grátis acabam rapidamente; clipes mais curtos por padrão.</li>
+                        <li><strong>Melhor Para:</strong> Produtoras de vídeo, agências publicitárias e pós-produção audiovisual.</li>
+                    </ul>
+                    <a href="runway.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do Runway →</a>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">Kling AI</h4>
+                    <ul class="spec-list">
+                        <li><strong>Preço:</strong> Créditos gratuitos diários renovados todo dia; planos Pro acessíveis.</li>
+                        <li><strong>Forças:</strong> Simulação física de movimentos complexos (como pessoas comendo, correndo ou dançando) com menos distorções; geração de clipes mais longos.</li>
+                        <li><strong>Fraquezas:</strong> Interface web focada principalmente em geração pontual, sem suíte completa de pós-produção.</li>
+                        <li><strong>Melhor Para:</strong> Criadores de conteúdo para redes sociais (TikTok, Reels) e animações realistas a partir de fotos.</li>
+                    </ul>
+                    <a href="kling.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do Kling AI →</a>
+                </div>
+            </div>
+
+            <div class="verdict-box">
+                <h4>🏆 Veredito do RadarIA</h4>
+                <p style="color: #334155; line-height: 1.6; margin: 0;">
+                    Para criadores independentes que querem créditos gratuitos diários e animações com física humana realista, o <strong>Kling AI</strong> é uma das ferramentas mais impressionantes da atualidade. Para cineastas e produtoras comerciais que precisam de controle fino de câmera e ferramentas integradas de edição, o <strong>Runway Gen-3</strong> segue na vanguarda da indústria.
+                </p>
+            </div>
+        </div>
+
+        <!-- DUELO 6: ElevenLabs vs Suno -->
+        <div class="comparison-box" data-battle="elevenlabs-suno" style="display: none;">
+            <div class="vs-header">
+                <div class="contender-card">
+                    <span class="price-badge freemium">Freemium</span>
+                    <h3>ElevenLabs</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Síntese de Voz Humana, Dublagem & Narração</p>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="contender-card">
+                    <span class="price-badge freemium">Freemium</span>
+                    <h3>Suno AI</h3>
+                    <p style="color: #64748b; font-size: 14px; margin: 0;">Composição Musical Completa por IA</p>
+                </div>
+            </div>
+
+            <div class="comparison-grid">
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">ElevenLabs (Voz Falada)</h4>
+                    <ul class="spec-list">
+                        <li><strong>Foco:</strong> Voz humana falada, entonação, risadas, pausas e sotaques em 30+ línguas.</li>
+                        <li><strong>Recurso Chave:</strong> Clonagem vocal com poucas frases de amostra e dublagem de vídeos com sincronia labial.</li>
+                        <li><strong>Plano Grátis:</strong> 10.000 caracteres mensais gratuitos.</li>
+                        <li><strong>Melhor Para:</strong> Narração de vídeos, audiobooks, podcasts, assistentes de atendimento e tradução de aulas.</li>
+                    </ul>
+                    <a href="elevenlabs.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do ElevenLabs →</a>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 17px; margin-bottom: 12px; color: #2563eb;">Suno AI (Música Cantada)</h4>
+                    <ul class="spec-list">
+                        <li><strong>Foco:</strong> Composição musical completa com vocais afinados, baterias, guitarras, pianos e corais.</li>
+                        <li><strong>Recurso Chave:</strong> Estruturação com metatags (`[Verse]`, `[Chorus]`, `[Solo]`) e múltiplos gêneros musicais.</li>
+                        <li><strong>Plano Grátis:</strong> 50 créditos diários (gerando até 10 músicas por dia).</li>
+                        <li><strong>Melhor Para:</strong> Músicos, compositores, criadores de jingles, canções temáticas e trilhas sonoras.</li>
+                    </ul>
+                    <a href="suno.html" class="btn-primary" style="display: inline-block; margin-top: 15px; font-size: 14px; padding: 10px 18px;">Ver detalhes do Suno →</a>
+                </div>
+            </div>
+
+            <div class="verdict-box">
+                <h4>🏆 Veredito do RadarIA</h4>
+                <p style="color: #334155; line-height: 1.6; margin: 0;">
+                    São duas ferramentas complementares no espectro do áudio: utilize o <strong>ElevenLabs</strong> quando seu projeto exigir fala clara e expressiva (como a voz de um apresentador em um vídeo), e use o <strong>Suno</strong> quando precisar de uma canção completa com ritmo, rimas e emoção melódica para embalar seus projetos.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h3>RadarIA ⚡</h3>
+            <div class="footer-links">
+                <a href="ferramentas.html">Ferramentas</a>
+                <a href="comparador.html">Comparador</a>
+                <a href="prompts.html">Prompts Hub</a>
+                <a href="categorias.html">Categorias</a>
+                <a href="artigos.html">Artigos</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <p>&copy; 2026 RadarIA. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

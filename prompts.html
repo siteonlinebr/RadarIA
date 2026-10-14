@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prompt Hub: Biblioteca de Prompts Prontos para IA | RadarIA</title>
+
+    <meta name="description" content="Biblioteca gratuita de prompts profissionais testados para ChatGPT, Claude, Gemini e Cursor. Copie com 1 clique comandos para marketing, código, estudos e produtividade.">
+
+    <meta name="author" content="RadarIA">
+    <meta name="robots" content="index, follow">
+
+    <script src="script.js?v=4.0" defer></script>
+    <link rel="stylesheet" href="style.css?v=4.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=4.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=4.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=4.0">
+    <link rel="shortcut icon" href="favicon.ico?v=4.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="radaria_top_logo.png" alt="RadarIA">
+            </a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Abrir menu">
+            ☰
+        </button>
+
+        <nav>
+            <a href="ferramentas.html">Ferramentas</a>
+            <a href="comparador.html">Comparador</a>
+            <a href="prompts.html">Prompts Hub</a>
+            <a href="categorias.html">Categorias</a>
+            <a href="artigos.html">Artigos</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main class="page-content">
+
+        <section class="page-hero">
+            <h1>Prompt Hub: Biblioteca de Prompts Prontos</h1>
+            <p>
+                Comandos de alto impacto testados e refinados para ChatGPT, Claude, Gemini e Cursor.
+                Basta copiar com 1 clique, preencher os campos entre colchetes e obter resultados profissionais.
+            </p>
+        </section>
+
+        <!-- Barra de Busca e Filtros de Prompts -->
+        <section class="tools-search-section">
+            <div class="search-bar-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="prompt-search" class="search-input" placeholder="Buscar prompt por função, área ou palavra-chave (ex: e-mail, bug, instagram)..." aria-label="Buscar prompt">
+            </div>
+
+            <div class="filter-chips">
+                <button type="button" class="filter-chip prompt-filter-chip active" data-filter="todos">Todos</button>
+                <button type="button" class="filter-chip prompt-filter-chip" data-filter="marketing">Marketing & Vendas</button>
+                <button type="button" class="filter-chip prompt-filter-chip" data-filter="programacao">Programação & Código</button>
+                <button type="button" class="filter-chip prompt-filter-chip" data-filter="produtividade">Produtividade & E-mails</button>
+                <button type="button" class="filter-chip prompt-filter-chip" data-filter="estudos">Estudos & Pesquisa</button>
+                <button type="button" class="filter-chip prompt-filter-chip" data-filter="conteudo">Criação de Conteúdo</button>
+            </div>
+
+            <div class="tools-meta-bar">
+                <span id="prompts-count" class="tools-count">Prompts prontos para uso</span>
+                <span>Copie com 1 clique</span>
+            </div>
+
+            <div id="prompts-no-results" class="no-results" style="display: none;">
+                <h3>Nenhum prompt encontrado</h3>
+                <p>Tente buscar por outro termo ou clique no filtro "Todos".</p>
+            </div>
+        </section>
+
+        <!-- Grade de Prompts -->
+        <div class="prompts-grid">
+
+            <!-- Prompt 1: Copywriting -->
+            <div class="prompt-card" data-category="marketing">
+                <div class="prompt-card-header">
+                    <span class="tool-tag">Marketing & Vendas</span>
+                    <span class="prompt-ai-tag">ChatGPT / Claude</span>
+                </div>
+                <h3>Página de Vendas de Alta Conversão (AIDA)</h3>
+                <p>Estrutura argumentos persuasivos aplicando Atenção, Interesse, Desejo e Ação para qualquer produto.</p>
+                <div class="prompt-box">Aja como um copywriter sênior com vasta experiência em marketing digital.
+Escreva a cópia de uma página de vendas para o produto: [NOME DO SEU PRODUTO].
+Público-alvo: [DESCREVA SEU CLIENTE IDEAL].
+Principal dor que o produto resolve: [PRINCIPAL PROBLEMA].
+Principal transformação gerada: [RESULTADO DESEJADO].
+
+Siga rigorosamente a estrutura AIDA:
+1. ATENÇÃO: Título magnético e subtítulo claro que fisguem o leitor em 3 segundos.
+2. INTERESSE: Conexão empática com a dor real e por que as soluções comuns falharam.
+3. DESEJO: Apresentação do produto, 3 diferenciais únicos e depoimentos simulados.
+4. AÇÃO: Chamada para ação (CTA) imperativa com quebra de objeções e garantia incondicional de 7 dias.
+Tom de voz: [CONFIANTE / EMPÁTICO / TÉCNICO]. Evite clichês vazios como "revolucione sua vida".</div>
+                <button type="button" class="copy-prompt-btn">📋 Copiar Prompt</button>
+            </div>
+
+            <!-- Prompt 2: Refatoração de Código -->
+            <div class="prompt-card" data-category="programacao">
+                <div class="prompt-card-header">
+                    <span class="tool-tag">Programação & Código</span>
+                    <span class="prompt-ai-tag">Cursor / Claude Sonnet</span>
+                </div>
+                <h3>Auditoria de Código, Performance e Segurança</h3>
+                <p>Identifica brechas de segurança, gargalos de performance e sugere código moderno com padrões SOLID.</p>
+                <div class="prompt-box">Aja como um engenheiro de software especialista em [LINGUAGEM/FRAMEWORK, ex: TypeScript e React].
+Analise o trecho de código abaixo com foco em três pilares:
+1. Performance (complexidade de tempo/espaço e re-renderizações desnecessárias).
+2. Segurança (vulnerabilidades comuns, validação de inputs e sanitização).
+3. Legibilidade e padrões de projeto (Clean Code e boas práticas atuais).
+
+Código a analisar:
+```
+[COLE SEU CÓDIGO AQUI]
+```
+
+Entregue:
+- Um resumo dos 3 problemas mais críticos encontrados com explicação técnica.
+- O código completamente refatorado e comentado.
+- Uma lista de testes unitários recomendados para cobrir cenários de borda.</div>
+                <button type="button" class="copy-prompt-btn">📋 Copiar Prompt</button>
+            </div>
+
+            <!-- Prompt 3: E-mail Profissional -->
+            <div class="prompt-card" data-category="produtividade">
+                <div class="prompt-card-header">
+                    <span class="tool-tag">Produtividade & E-mails</span>
+                    <span class="prompt-ai-tag">ChatGPT / Gemini</span>
+                </div>
+                <h3>E-mail Executivo para Negociação ou Alinhamento</h3>
+                <p>Comunicação assertiva, educada e elegante para resolver pendências com clientes ou parceiros difíceis.</p>
+                <div class="prompt-box">Aja como um executivo de negócios sênior com excelente comunicação interpessoal.
+Redija um e-mail profissional para [DESTINATÁRIO, ex: um cliente atrasado com pagamento / um fornecedor que mudou o escopo].
+Situação atual: [DESCREVA O QUE ACONTECEU].
+Ação esperada do destinatário: [O QUE VOCÊ PRECISA QUE ELE FAÇA].
+Prazo limite: [DATA OU DIA DA SEMANA].
+
+Critérios de tom:
+- Firme e claro quanto aos termos contratuais, mas extremamente educado e colaborativo.
+- Sem tom passivo-agressivo ou defensivo.
+- Estruturado em no máximo 3 parágrafos objetivos para leitura rápida no celular.</div>
+                <button type="button" class="copy-prompt-btn">📋 Copiar Prompt</button>
+            </div>
+
+            <!-- Prompt 4: Estudos (Método Feynman) -->
+            <div class="prompt-card" data-category="estudos">
+                <div class="prompt-card-header">
+                    <span class="tool-tag">Estudos & Pesquisa</span>
+                    <span class="prompt-ai-tag">Claude / DeepSeek</span>
+                </div>
+                <h3>Explicador de Conceitos Complexos (Técnica Feynman)</h3>
+                <p>Desmonta conceitos difíceis em analogias práticas do mundo real para aprendizado acelerado.</p>
+                <div class="prompt-box">Aja como um professor premiado pela didática clara e apaixonante.
+Quero que você me explique o conceito de: [CONCEITO COMPLEXO, ex: Redes Neurais Convolucionais / Inflação e Taxa Selic / Recursão em Algoritmos].
+
+Utilize a Técnica de Feynman com as seguintes etapas:
+1. Explique como se eu tivesse 12 anos: use uma analogia vívida do cotidiano sem nenhum jargão técnico.
+2. Aprofunde um degrau: mostre como o conceito realmente funciona nos bastidores com detalhes práticos.
+3. Exemplos reais: cite 2 aplicações onde esse conceito é usado no mundo moderno.
+4. Teste de fixação: crie 3 perguntas de múltipla escolha para eu testar se realmente entendi o raciocínio.</div>
+                <button type="button" class="copy-prompt-btn">📋 Copiar Prompt</button>
+            </div>
+
+            <!-- Prompt 5: Roteiro para Vídeos Curtos -->
+            <div class="prompt-card" data-category="conteudo">
+                <div class="prompt-card-header">
+                    <span class="tool-tag">Criação de Conteúdo</span>
+                    <span class="prompt-ai-tag">ChatGPT / Claude</span>
+                </div>
+                <h3>Roteiro Dinâmico para Reels / TikTok / Shorts</h3>
+                <p>Roteiro de 60 segundos com gancho magnético nos primeiros 3 segundos e retenção máxima.</p>
+                <div class="prompt-box">Aja como um estrategista de conteúdo viral para redes sociais de vídeos curtos.
+Crie um roteiro de vídeo de 45 a 60 segundos sobre o tema: [SEU TEMA OU DICA].
+Público: [SEU NICHO / SEGUIDORES].
+
+Estruture o roteiro exatamente neste formato de duas colunas:
+- [00:00 - 00:03] GANCHO (Hook): Uma frase provocativa ou curiosa que impeça a pessoa de rolar o feed. (Descreva também a ação visual na tela).
+- [00:03 - 00:15] O PROBLEMA: Identificação imediata com a dor do espectador.
+- [00:15 - 00:45] A SOLUÇÃO: Entrega de 3 passos práticos e rápidos, direto ao ponto.
+- [00:45 - 00:60] CHAMADA PARA AÇÃO (CTA): Convite inteligente para salvar o post ou comentar uma palavra-chave para receber mais detalhes.
+O tom deve ser ágil, coloquial e sem enrolação.</div>
+                <button type="button" class="copy-prompt-btn">📋 Copiar Prompt</button>
+            </div>
+
+            <!-- Prompt 6: Resumo Executivo de Reunião -->
+            <div class="prompt-card" data-category="produtividade">
+                <div class="prompt-card-header">
+                    <span class="tool-tag">Produtividade & E-mails</span>
+                    <span class="prompt-ai-tag">Notion AI / Claude</span>
+                </div>
+                <h3>Transformar Transcrição ou Anotações em Ata Executiva</h3>
+                <p>Extrai decisões tomadas, pendências, prazos e responsáveis a partir de conversas desorganizadas.</p>
+                <div class="prompt-box">Aja como um gerente de projetos certificado PMP.
+Abaixo estão as anotações brutas de uma reunião de alinhamento:
+```
+[COLE AQUI SUAS ANOTAÇÕES, TRANSCRIÇÃO DE VOZ OU TEXTO SOLTO]
+```
+
+Processe esse conteúdo e gere uma Ata Executiva limpa contendo:
+1. Objetivo da Reunião (1 frase clara).
+2. Principais Decisões Tomadas (em tópicos com marcadores).
+3. Matriz de Ação (Tabela com: Ação a ser feita | Responsável direto | Prazo estipulado).
+4. Pontos que ficaram pendentes para a próxima reunião.
+Mantenha a síntese estrita: corte comentários paralelos ou conversas que não geraram decisões.</div>
+                <button type="button" class="copy-prompt-btn">📋 Copiar Prompt</button>
+            </div>
+
+            <!-- Prompt 7: Criador de Prompts para Midjourney e FLUX -->
+            <div class="prompt-card" data-category="conteudo marketing">
+                <div class="prompt-card-header">
+                    <span class="tool-tag">Criação de Conteúdo</span>
+                    <span class="prompt-ai-tag">ChatGPT / Claude</span>
+                </div>
+                <h3>Gerador de Prompts Fotorrealistas para Imagens</h3>
+                <p>Gera prompts detalhados em inglês com especificações de câmera, iluminação, lente e atmosfera.</p>
+                <div class="prompt-box">Aja como um diretor de fotografia e especialista em engenharia de prompt para geradores de imagem por IA (Midjourney v6 e FLUX.1).
+Eu quero criar uma imagem com o seguinte conceito geral: [DESCREVA SUA IDEIA EM PORTUGUÊS].
+
+Gere 3 variações detalhadas do prompt em INGLÊS incorporando:
+- Sujeito e ação principal com riqueza de detalhes físicos e expressivos.
+- Especificações fotográficas reais (ex: shot on 35mm lens, f/1.8 aperture, cinematic soft natural lighting, volumetric shadows).
+- Estilo estético e paleta de cores (ex: warm tones, kodak portra 400 aesthetic, hyper-detailed texture).
+- Parâmetros técnicos para Midjourney ao final (--ar 16:9 --style raw --v 6.0).
+Inclua também uma tradução comentada em português para cada versão explicando a escolha artística.</div>
+                <button type="button" class="copy-prompt-btn">📋 Copiar Prompt</button>
+            </div>
+
+            <!-- Prompt 8: Encontrar Erros e Resolver Bugs -->
+            <div class="prompt-card" data-category="programacao">
+                <div class="prompt-card-header">
+                    <span class="tool-tag">Programação & Código</span>
+                    <span class="prompt-ai-tag">DeepSeek / Cursor</span>
+                </div>
+                <h3>Diagnóstico Cirúrgico de Stacktrace e Bugs Misteriosos</h3>
+                <p>Descobre a causa raiz de mensagens de erro crípticas e apresenta a correção sem quebrar dependências.</p>
+                <div class="prompt-box">Aja como um especialista sênior em depuração de software e DevOps.
+Estou enfrentando o seguinte erro no meu ambiente:
+Ambiente / Stack: [EX: Node.js 20, PostgreSQL, React, Docker, etc.]
+Mensagem de Erro / Stacktrace:
+```
+[COLE A MENSAGEM DE ERRO EXATA AQUI]
+```
+Código relevante que disparou o erro:
+```
+[COLE O TRECHO DO ARQUIVO SE HOUVER]
+```
+
+Por favor:
+1. Explique em linguagem simples qual é a causa raiz física desse erro (o que realmente falhou).
+2. Forneça o passo a passo exato para reproduzir e corrigir.
+3. Mostre o código corrigido com a diferença pontual destacada.
+4. Explique como evitar que esse problema ocorra novamente em ambiente de produção.</div>
+                <button type="button" class="copy-prompt-btn">📋 Copiar Prompt</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h3>RadarIA ⚡</h3>
+            <div class="footer-links">
+                <a href="ferramentas.html">Ferramentas</a>
+                <a href="comparador.html">Comparador</a>
+                <a href="prompts.html">Prompts Hub</a>
+                <a href="categorias.html">Categorias</a>
+                <a href="artigos.html">Artigos</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <p>&copy; 2026 RadarIA. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RadarIA | Ferramentas e Conteúdos sobre Inteligência Artificial</title>
+    <title>RadarIA - As Melhores Ferramentas e Artigos de Inteligência Artificial</title>
 
-    <meta name="description" content="Descubra ferramentas de inteligência artificial, guias, artigos e conteúdos sobre IA. Explore soluções para produtividade, criação, programação e muito mais no RadarIA.">
+    <meta name="description" content="Descubra e explore as melhores ferramentas de inteligência artificial para produtividade, programação, imagens, vídeos, áudio e escrita. Diretório completo com comparadores e prompts.">
 
     <meta name="author" content="RadarIA">
     <meta name="robots" content="index, follow">
 
-    <script src="script.js?v=3.0" defer></script>
-    <link rel="stylesheet" href="style.css?v=3.0">
+    <script src="script.js?v=4.0" defer></script>
+    <link rel="stylesheet" href="style.css?v=4.0">
 
     <meta name="google-site-verification" content="NH8bFxLGby8Bvwdi1g7GQOakWHas0kSHAoZ2n3vzGQ8">
 
@@ -29,8 +30,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=4.0">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4.0">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=4.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=4.0">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=4.0">
     <link rel="shortcut icon" href="favicon.ico?v=4.0">
 </head>
@@ -50,13 +51,14 @@
 
         <nav>
             <a href="ferramentas.html">Ferramentas</a>
+            <a href="comparador.html">Comparador</a>
+            <a href="prompts.html">Prompts Hub</a>
             <a href="categorias.html">Categorias</a>
             <a href="artigos.html">Artigos</a>
             <a href="sobre.html">Sobre</a>
             <a href="contato.html">Contato</a>
         </nav>
-</header>
-
+    </header>
 
     <main>
 
@@ -67,20 +69,29 @@
             <p>
                 Encontre ferramentas de IA para produtividade, criação de conteúdo,
                 programação, pesquisa, imagens, vídeos e outras tarefas.
-                Explore cada plataforma e descubra como ela pode ser utilizada.
+                Filtre por categoria, modelo de preço ou salve seus favoritos.
             </p>
 
-            <a href="ferramentas.html" class="btn-primary" style="margin-bottom: 30px;">
-                Explorar Todas as Ferramentas
-            </a>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px;">
+                <a href="ferramentas.html" class="btn-primary">
+                    Explorar Catálogo Completo
+                </a>
+                <a href="comparador.html" class="btn-primary" style="background-color: #4f46e5;">
+                    ⚔️ Comparar IAs Lado a Lado
+                </a>
+                <a href="prompts.html" class="btn-primary" style="background-color: #059669;">
+                    📋 Prompts Prontos
+                </a>
+            </div>
 
-            <!-- Busca Rápida na Home -->
+            <!-- Busca e Filtros Dinâmicos na Home -->
             <div class="tools-search-section" style="margin-top: 35px; margin-bottom: 0;">
                 <div class="search-bar-wrapper">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="tool-search" class="search-input" placeholder="Buscar ferramenta por nome, categoria ou função (ex: Claude, vídeo, código)..." aria-label="Buscar ferramenta">
+                    <input type="text" id="tool-search" class="search-input" placeholder="Buscar ferramenta por nome, função ou categoria (ex: DeepSeek, código, vídeo, grátis)..." aria-label="Buscar ferramenta">
                 </div>
 
+                <!-- Linha 1: Categorias -->
                 <div class="filter-chips">
                     <button type="button" class="filter-chip active" data-filter="todas">Todas</button>
                     <button type="button" class="filter-chip" data-filter="escrita">Escrita</button>
@@ -91,161 +102,324 @@
                     <button type="button" class="filter-chip" data-filter="audio">Áudio & Música</button>
                 </div>
 
-                <div class="tools-meta-bar">
-                    <span id="tools-count" class="tools-count">Ferramentas em destaque</span>
-                    <span>RadarIA Atualizado</span>
+                <!-- Linha 2: Filtro de Preço e Favoritos -->
+                <div class="filter-chips pricing-chips" style="margin-top: 10px;">
+                    <button type="button" class="filter-chip active" data-price="todos">Todos os Preços</button>
+                    <button type="button" class="filter-chip" data-price="free">🟢 100% Grátis</button>
+                    <button type="button" class="filter-chip" data-price="freemium">⚡ Freemium</button>
+                    <button type="button" class="filter-chip" data-price="paid">💎 Pagas</button>
+                    <button type="button" class="filter-chip" data-price="favoritos">⭐ Meus Favoritos</button>
                 </div>
 
-                <div id="no-results-msg" class="no-results">
+                <div class="tools-meta-bar">
+                    <span id="tools-count" class="tools-count">15 ferramentas em destaque</span>
+                    <span>Clique na estrela (☆) para favoritar</span>
+                </div>
+
+                <div id="no-results-msg" class="no-results" style="display: none;">
                     <h3>Nenhuma ferramenta encontrada</h3>
-                    <p>Tente buscar por outro termo ou clique em "Todas".</p>
+                    <p>Tente buscar por outro termo ou ajuste os filtros de categoria e preço.</p>
                 </div>
             </div>
 
         </section>
 
-
+        <!-- Grade de Ferramentas em Destaque -->
         <section class="content-hero">
 
             <h2>Ferramentas em Destaque</h2>
 
             <div class="cards">
 
-                <div class="card" data-category="escrita produtividade programacao">
-                    <span class="tool-tag">Assistente Geral</span>
+                <!-- 1. DeepSeek -->
+                <div class="card" data-id="deepseek" data-category="programacao escrita produtividade" data-pricing="free">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Raciocínio & Código</span>
+                            <span class="price-badge free">Grátis</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="deepseek" aria-label="Favoritar DeepSeek">☆</button>
+                    </div>
+                    <h3>DeepSeek</h3>
+                    <p>
+                        Modelo open-weight revolucionário focado em raciocínio matemático,
+                        programação e resolução de problemas lógicos sem custos.
+                    </p>
+                    <a href="deepseek.html" class="card-link">Ver ferramenta</a>
+                </div>
+
+                <!-- 2. ChatGPT -->
+                <div class="card" data-id="chatgpt" data-category="escrita produtividade programacao" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Assistente Geral</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="chatgpt" aria-label="Favoritar ChatGPT">☆</button>
+                    </div>
                     <h3>ChatGPT</h3>
                     <p>
-                        Assistente de inteligência artificial para escrita,
-                        estudos, programação, criação de ideias e diversas
-                        tarefas do dia a dia.
+                        Assistente de IA mais popular do mundo para escrita, estudos,
+                        análise de dados, modo de voz em tempo real e automações.
                     </p>
-                    <a href="chatgpt.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="chatgpt.html" class="card-link">Ver ferramenta</a>
                 </div>
 
-                <div class="card" data-category="escrita produtividade programacao">
-                    <span class="tool-tag">Raciocínio & Código</span>
+                <!-- 3. Claude -->
+                <div class="card" data-id="claude" data-category="escrita produtividade programacao" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Raciocínio & Escrita</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="claude" aria-label="Favoritar Claude">☆</button>
+                    </div>
                     <h3>Claude</h3>
                     <p>
-                        IA avançada da Anthropic para raciocínio profundo,
-                        análise de textos extensos e geração precisa de software.
+                        IA da Anthropic destacada pela fluidez humana na redação,
+                        leitura de documentos extensos e geração precisa de software.
                     </p>
-                    <a href="claude.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="claude.html" class="card-link">Ver ferramenta</a>
                 </div>
 
-                <div class="card" data-category="imagens">
-                    <span class="tool-tag">Geração de Imagens</span>
-                    <h3>Midjourney</h3>
+                <!-- 4. v0 by Vercel -->
+                <div class="card" data-id="v0" data-category="programacao produtividade" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Design & Frontend</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="v0" aria-label="Favoritar v0">☆</button>
+                    </div>
+                    <h3>v0 by Vercel</h3>
                     <p>
-                        Plataforma de inteligência artificial especializada
-                        na criação de imagens a partir de descrições e ideias
-                        visuais.
+                        Criação generativa de interfaces web completas, páginas e
+                        componentes em React e Tailwind CSS a partir de texto ou imagens.
                     </p>
-                    <a href="midjourney.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="v0.html" class="card-link">Ver ferramenta</a>
                 </div>
 
-                <div class="card" data-category="video">
-                    <span class="tool-tag">Criação de Vídeo</span>
-                    <h3>Runway ML</h3>
+                <!-- 5. FLUX.1 -->
+                <div class="card" data-id="flux" data-category="imagens" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Imagens & Arte</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="flux" aria-label="Favoritar FLUX.1">☆</button>
+                    </div>
+                    <h3>FLUX.1</h3>
                     <p>
-                        Plataforma de IA voltada para criação e edição de vídeos,
-                        imagens e outros conteúdos multimídia.
+                        O novo padrão mundial em geração de imagens por IA com renderização
+                        impecável de textos internos, mãos perfeitas e fotorrealismo.
                     </p>
-                    <a href="runway.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="flux.html" class="card-link">Ver ferramenta</a>
                 </div>
 
-                <div class="card" data-category="programacao produtividade">
-                    <span class="tool-tag">IDE & Programação</span>
+                <!-- 6. Cursor -->
+                <div class="card" data-id="cursor" data-category="programacao produtividade" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">IDE & Código</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="cursor" aria-label="Favoritar Cursor">☆</button>
+                    </div>
                     <h3>Cursor</h3>
                     <p>
-                        Editor de código inteligente com IA integrada no fluxo
-                        de desenvolvimento para acelerar a criação de projetos.
+                        Editor de código inteligente construído sobre o VS Code com
+                        edição multi-arquivo simultânea e chat com o repositório inteiro.
                     </p>
-                    <a href="cursor.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="cursor.html" class="card-link">Ver ferramenta</a>
                 </div>
 
-                <div class="card" data-category="audio video">
-                    <span class="tool-tag">Voz & Dublagem IA</span>
+                <!-- 7. Midjourney -->
+                <div class="card" data-id="midjourney" data-category="imagens" data-pricing="paid">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Geração Visual</span>
+                            <span class="price-badge paid">Pago</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="midjourney" aria-label="Favoritar Midjourney">☆</button>
+                    </div>
+                    <h3>Midjourney</h3>
+                    <p>
+                        Plataforma artística consagrada para criação de ilustrações,
+                        conceitos visuais cinematográficos e estética refinada.
+                    </p>
+                    <a href="midjourney.html" class="card-link">Ver ferramenta</a>
+                </div>
+
+                <!-- 8. Runway ML -->
+                <div class="card" data-id="runway" data-category="video" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Criação de Vídeo</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="runway" aria-label="Favoritar Runway ML">☆</button>
+                    </div>
+                    <h3>Runway ML</h3>
+                    <p>
+                        Suíte criativa pioneira para geração de vídeos (Gen-3 Alpha),
+                        edição com IA, remoção de fundos e pós-produção audiovisual.
+                    </p>
+                    <a href="runway.html" class="card-link">Ver ferramenta</a>
+                </div>
+
+                <!-- 9. Kling AI -->
+                <div class="card" data-id="kling" data-category="video" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Vídeo Cinematográfico</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="kling" aria-label="Favoritar Kling AI">☆</button>
+                    </div>
+                    <h3>Kling AI</h3>
+                    <p>
+                        Geração de vídeos realistas com física avançada, animação de
+                        fotos com movimentos naturais de câmera e créditos diários.
+                    </p>
+                    <a href="kling.html" class="card-link">Ver ferramenta</a>
+                </div>
+
+                <!-- 10. ElevenLabs -->
+                <div class="card" data-id="elevenlabs" data-category="audio video" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Voz & Dublagem</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="elevenlabs" aria-label="Favoritar ElevenLabs">☆</button>
+                    </div>
                     <h3>ElevenLabs</h3>
                     <p>
-                        Síntese e clonagem de voz hiper-realista em dezenas de idiomas
-                        para narrações, vídeos e podcasts.
+                        Síntese e clonagem de voz ultra-realista em dezenas de idiomas
+                        com emoções naturais para vídeos, podcasts e audiobooks.
                     </p>
-                    <a href="elevenlabs.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="elevenlabs.html" class="card-link">Ver ferramenta</a>
                 </div>
 
-                <div class="card" data-category="audio">
-                    <span class="tool-tag">Composição Musical</span>
+                <!-- 11. Suno -->
+                <div class="card" data-id="suno" data-category="audio" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Composição Musical</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="suno" aria-label="Favoritar Suno">☆</button>
+                    </div>
                     <h3>Suno</h3>
                     <p>
                         Composição de músicas completas com instrumentos, vocais
-                        e melodias personalizadas com inteligência artificial.
+                        emocionantes e arranjos personalizados a partir de prompts de texto.
                     </p>
-                    <a href="suno.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="suno.html" class="card-link">Ver ferramenta</a>
                 </div>
 
-                <div class="card" data-category="produtividade escrita">
-                    <span class="tool-tag">Produtividade</span>
+                <!-- 12. Gamma AI -->
+                <div class="card" data-id="gamma" data-category="produtividade" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Apresentações</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="gamma" aria-label="Favoritar Gamma AI">☆</button>
+                    </div>
+                    <h3>Gamma AI</h3>
+                    <p>
+                        Geração automática de apresentações de slides, páginas web
+                        e documentos com design executivo a partir de notas e rascunhos.
+                    </p>
+                    <a href="gamma.html" class="card-link">Ver ferramenta</a>
+                </div>
+
+                <!-- 13. Notion AI -->
+                <div class="card" data-id="notion" data-category="produtividade escrita" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Notas & Projetos</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="notion" aria-label="Favoritar Notion AI">☆</button>
+                    </div>
                     <h3>Notion AI</h3>
                     <p>
-                        Recurso de inteligência artificial integrado para notas,
-                        resumos, organização de tarefas e documentos.
+                        Inteligência artificial integrada para notas, atas executivas,
+                        resumos de projetos e organização inteligente de tarefas.
                     </p>
-                    <a href="notion.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="notion.html" class="card-link">Ver ferramenta</a>
                 </div>
 
-                <div class="card" data-category="escrita produtividade">
-                    <span class="tool-tag">Assistente Google</span>
+                <!-- 14. Gemini -->
+                <div class="card" data-id="gemini" data-category="escrita produtividade" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Assistente Google</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="gemini" aria-label="Favoritar Gemini">☆</button>
+                    </div>
                     <h3>Gemini</h3>
                     <p>
-                        IA do Google conectada aos serviços da web para pesquisa,
-                        resumo, criação de textos e assistência multitarefa.
+                        IA multimodal do Google com pesquisa na web em tempo real,
+                        integração com Gmail, Docs, Drive e enorme janela de contexto.
                     </p>
-                    <a href="gemini.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="gemini.html" class="card-link">Ver ferramenta</a>
                 </div>
 
-                <div class="card" data-category="produtividade pesquisa">
-                    <span class="tool-tag">Buscador Inteligente</span>
+                <!-- 15. Perplexity -->
+                <div class="card" data-id="perplexity" data-category="produtividade pesquisa" data-pricing="freemium">
+                    <div class="card-header-row">
+                        <div class="tags-wrapper">
+                            <span class="tool-tag">Buscador Inteligente</span>
+                            <span class="price-badge freemium">Freemium</span>
+                        </div>
+                        <button type="button" class="fav-btn" data-id="perplexity" aria-label="Favoritar Perplexity">☆</button>
+                    </div>
                     <h3>Perplexity</h3>
                     <p>
-                        Buscador conversacional que entrega respostas sintetizadas
-                        com fontes e referências confiáveis em tempo real.
+                        Buscador conversacional com fontes citadas em tempo real,
+                        entregando respostas sem anúncios e com alta precisão.
                     </p>
-                    <a href="perplexity.html" class="card-link">
-                        Ver ferramenta
-                    </a>
+                    <a href="perplexity.html" class="card-link">Ver ferramenta</a>
                 </div>
 
                 <div class="tools-button">
-
                     <a href="ferramentas.html" class="btn-tools">
-                        Explorar todas as ferramentas →
+                        Explorar catálogo completo de ferramentas →
                     </a>
-
                 </div>
 
             </div>
 
         </section>
 
+        <!-- Seção Novidades: Duelo de IAs e Prompt Hub -->
+        <section style="padding: 40px 20px; max-width: 1100px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                <div style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 32px; border-radius: 18px; box-shadow: 0 10px 25px rgba(37,99,235,0.2);">
+                    <span style="font-size: 28px;">⚔️</span>
+                    <h3 style="font-size: 22px; margin: 12px 0 8px; color: white;">Duelo de IAs: Comparador Direto</h3>
+                    <p style="font-size: 15px; opacity: 0.9; line-height: 1.6; margin-bottom: 20px;">
+                        Na dúvida de qual IA usar? Veja comparações lado a lado: ChatGPT vs Claude, DeepSeek vs ChatGPT, Midjourney vs Flux e mais.
+                    </p>
+                    <a href="comparador.html" style="display: inline-block; background: white; color: #1e3a8a; font-weight: 700; padding: 10px 20px; border-radius: 8px; text-decoration: none;">Abrir Comparador →</a>
+                </div>
 
+                <div style="background: linear-gradient(135deg, #065f46, #10b981); color: white; padding: 32px; border-radius: 18px; box-shadow: 0 10px 25px rgba(16,185,129,0.2);">
+                    <span style="font-size: 28px;">📋</span>
+                    <h3 style="font-size: 22px; margin: 12px 0 8px; color: white;">Prompt Hub: Comandos Prontos</h3>
+                    <p style="font-size: 15px; opacity: 0.9; line-height: 1.6; margin-bottom: 20px;">
+                        Biblioteca gratuita de prompts profissionais testados para marketing, programação, rotinas de e-mail e estudos. Copie com 1 clique!
+                    </p>
+                    <a href="prompts.html" style="display: inline-block; background: white; color: #065f46; font-weight: 700; padding: 10px 20px; border-radius: 8px; text-decoration: none;">Acessar Prompts →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artigos Recentes -->
         <section class="articles">
 
             <h2>Artigos Recentes</h2>
@@ -346,7 +520,7 @@
 
         </section>
 
-
+        <!-- Categorias -->
         <section class="categories">
 
             <h2>Categorias</h2>
@@ -369,10 +543,6 @@
                     Programação
                 </a>
 
-                <a href="categoria-marketing.html" class="category-item">
-                    Marketing
-                </a>
-
                 <a href="categoria-produtividade.html" class="category-item">
                     Produtividade
                 </a>
@@ -381,74 +551,32 @@
                     Áudio & Música
                 </a>
 
+                <a href="categoria-marketing.html" class="category-item">
+                    Marketing
+                </a>
+
             </div>
-
-        </section>
-
-
-        <section class="about-site">
-
-            <h2>O que é o RadarIA?</h2>
-
-            <p>
-                O RadarIA é um site dedicado a reunir ferramentas, conteúdos
-                e informações sobre inteligência artificial em um só lugar.
-                A proposta é facilitar a descoberta de novas tecnologias e
-                ajudar você a entender para que cada ferramenta pode ser útil.
-            </p>
-
-            <p>
-                Além de apresentar ferramentas de IA, o RadarIA reúne artigos
-                e conteúdos organizados por categorias, permitindo encontrar
-                soluções para diferentes necessidades, como escrita, criação
-                de imagens, produção de vídeos, programação, marketing e
-                produtividade.
-            </p>
-
-            <p>
-                Acesse as páginas das ferramentas para conhecer seus recursos,
-                entender como funcionam e encontrar o link para o site oficial
-                de cada plataforma.
-            </p>
 
         </section>
 
     </main>
 
-
     <footer>
-
         <div class="footer-content">
-
             <h3>RadarIA ⚡</h3>
-
             <div class="footer-links">
-
-                <a href="ferramentas.html">
-                    Ferramentas
-                </a>
-
-                <a href="categorias.html">
-                    Categorias
-                </a>
-
-                <a href="sobre.html">
-                    Sobre
-                </a>
-
-                <a href="contato.html">
-                    Contato
-                </a>
-
+                <a href="ferramentas.html">Ferramentas</a>
+                <a href="comparador.html">Comparador</a>
+                <a href="prompts.html">Prompts Hub</a>
+                <a href="categorias.html">Categorias</a>
+                <a href="artigos.html">Artigos</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="contato.html">Contato</a>
             </div>
-
-            <p>
-                &copy; 2026 RadarIA. Todos os direitos reservados.
-            </p>
-
+            <p>&copy; 2026 RadarIA. Todos os direitos reservados.</p>
         </div>
-
     </footer>
 
 </body>
+
 </html>

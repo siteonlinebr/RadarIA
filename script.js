@@ -37,29 +37,108 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Busca e Filtro em Tempo Real (index.html e ferramentas.html)
+    // 2. Sistema de Favoritos (LocalStorage)
+    const STORAGE_KEY = 'radaria_user_favorites';
+    
+    function getFavorites() {
+        try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        } catch {
+            return [];
+        }
+    }
+
+    function saveFavorites(favs) {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
+        } catch (e) {
+            console.error('Erro ao salvar favoritos:', e);
+        }
+    }
+
+    function initFavorites() {
+        const favButtons = document.querySelectorAll('.fav-btn');
+        const favorites = getFavorites();
+
+        favButtons.forEach(btn => {
+            const card = btn.closest('.card, .tool-card');
+            const toolId = card?.getAttribute('data-id') || btn.getAttribute('data-id');
+            if (!toolId) return;
+
+            const isFav = favorites.includes(toolId);
+            btn.classList.toggle('active', isFav);
+            btn.innerHTML = isFav ? '★' : '☆';
+            btn.setAttribute('aria-label', isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos');
+            btn.setAttribute('title', isFav ? 'Salvo nos Favoritos' : 'Salvar nos Favoritos');
+
+            // Click listener
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                let currentFavs = getFavorites();
+                const nowFav = !currentFavs.includes(toolId);
+
+                if (nowFav) {
+                    currentFavs.push(toolId);
+                } else {
+                    currentFavs = currentFavs.filter(id => id !== toolId);
+                }
+
+                saveFavorites(currentFavs);
+
+                // Atualizar todos os botões com o mesmo id na página
+                document.querySelectorAll(`.fav-btn[data-id="${toolId}"]`).forEach(b => {
+                    b.classList.toggle('active', nowFav);
+                    b.innerHTML = nowFav ? '★' : '☆';
+                    b.setAttribute('aria-label', nowFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos');
+                    b.setAttribute('title', nowFav ? 'Salvo nos Favoritos' : 'Salvar nos Favoritos');
+                });
+
+                // Se o filtro ativo for de favoritos, re-filtrar
+                if (window.activePriceFilter === 'favoritos') {
+                    window.filterToolsFn && window.filterToolsFn();
+                }
+            });
+        });
+    }
+
+    // 3. Busca e Filtro Multi-critério (index.html e ferramentas.html)
     const searchInput = document.getElementById('tool-search');
-    const filterChips = document.querySelectorAll('.filter-chip');
+    const categoryChips = document.querySelectorAll('.filter-chips:not(.pricing-chips) .filter-chip');
+    const priceChips = document.querySelectorAll('.pricing-chips .filter-chip');
     const toolCards = document.querySelectorAll('.tools-grid .tool-card, .cards .card');
     const countDisplay = document.getElementById('tools-count');
     const noResultsMsg = document.getElementById('no-results-msg');
 
-    if (toolCards.length > 0 && (searchInput || filterChips.length > 0)) {
+    if (toolCards.length > 0) {
         let activeCategory = 'todas';
+        let activePrice = 'todos';
+        window.activePriceFilter = activePrice;
 
         function filterTools() {
             const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            const favorites = getFavorites();
             let visibleCount = 0;
 
             toolCards.forEach(card => {
+                const toolId = card.getAttribute('data-id') || '';
                 const title = (card.querySelector('h2') || card.querySelector('h3'))?.textContent.toLowerCase() || '';
                 const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
                 const category = (card.getAttribute('data-category') || '').toLowerCase();
+                const pricing = (card.getAttribute('data-pricing') || '').toLowerCase();
 
                 const matchesQuery = !query || title.includes(query) || desc.includes(query) || category.includes(query);
                 const matchesCategory = activeCategory === 'todas' || category.includes(activeCategory);
+                
+                let matchesPrice = true;
+                if (activePrice === 'favoritos') {
+                    matchesPrice = favorites.includes(toolId);
+                } else if (activePrice !== 'todos') {
+                    matchesPrice = pricing === activePrice;
+                }
 
-                if (matchesQuery && matchesCategory) {
+                if (matchesQuery && matchesCategory && matchesPrice) {
                     card.style.display = '';
                     visibleCount++;
                 } else {
@@ -68,7 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (countDisplay) {
-                countDisplay.textContent = `${visibleCount} ferramenta${visibleCount === 1 ? '' : 's'} encontrada${visibleCount === 1 ? '' : 's'}`;
+                let suffix = '';
+                if (activePrice === 'favoritos') suffix = ' nos Favoritos';
+                countDisplay.textContent = `${visibleCount} ferramenta${visibleCount === 1 ? '' : 's'} encontrada${visibleCount === 1 ? '' : 's'}${suffix}`;
             }
 
             if (noResultsMsg) {
@@ -76,24 +157,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        window.filterToolsFn = filterTools;
+
         if (searchInput) {
             searchInput.addEventListener('input', filterTools);
         }
 
-        filterChips.forEach(chip => {
+        // Filtro de Categoria
+        categoryChips.forEach(chip => {
             chip.addEventListener('click', () => {
-                filterChips.forEach(c => c.classList.remove('active'));
+                categoryChips.forEach(c => c.classList.remove('active'));
                 chip.classList.add('active');
                 activeCategory = chip.getAttribute('data-filter') || 'todas';
                 filterTools();
             });
         });
 
-        // Contagem inicial
+        // Filtro de Preço / Favoritos
+        priceChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                priceChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activePrice = chip.getAttribute('data-price') || 'todos';
+                window.activePriceFilter = activePrice;
+                filterTools();
+            });
+        });
+
+        initFavorites();
         filterTools();
+    } else {
+        initFavorites();
     }
 
-    // 3. Busca e Filtro de Artigos (artigos.html)
+    // 4. Busca e Filtro de Artigos (artigos.html)
     const articleSearchInput = document.getElementById('article-search');
     const articleFilterChips = document.querySelectorAll('.article-filter-chip');
     const articleCards = document.querySelectorAll('.articles-grid .article-card');
@@ -148,7 +245,115 @@ document.addEventListener('DOMContentLoaded', () => {
         filterArticles();
     }
 
-    // 4. Formulário de Contato (contato.html)
+    // 5. Comparador de IAs - Alternância de Abas (comparador.html)
+    const battleTabs = document.querySelectorAll('.battle-tab');
+    const comparisonBoxes = document.querySelectorAll('.comparison-box');
+
+    if (battleTabs.length > 0 && comparisonBoxes.length > 0) {
+        battleTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetBattle = tab.getAttribute('data-battle');
+
+                battleTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                comparisonBoxes.forEach(box => {
+                    if (box.getAttribute('data-battle') === targetBattle) {
+                        box.style.display = 'block';
+                    } else {
+                        box.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+
+    // 6. Prompt Hub - Copiar Prompt com 1 Clique (prompts.html)
+    const copyPromptBtns = document.querySelectorAll('.copy-prompt-btn');
+
+    if (copyPromptBtns.length > 0) {
+        copyPromptBtns.forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const card = btn.closest('.prompt-card');
+                const promptBox = card?.querySelector('.prompt-box');
+                if (!promptBox) return;
+
+                const textToCopy = promptBox.innerText.trim();
+
+                try {
+                    await navigator.clipboard.writeText(textToCopy);
+                    const originalHtml = btn.innerHTML;
+                    btn.classList.add('copied');
+                    btn.innerHTML = '✓ Copiado para a Área de Transferência!';
+
+                    setTimeout(() => {
+                        btn.classList.remove('copied');
+                        btn.innerHTML = originalHtml;
+                    }, 2200);
+                } catch (err) {
+                    console.error('Erro ao copiar prompt:', err);
+                }
+            });
+        });
+    }
+
+    // 7. Filtro no Prompt Hub (prompts.html)
+    const promptSearchInput = document.getElementById('prompt-search');
+    const promptFilterChips = document.querySelectorAll('.prompt-filter-chip');
+    const promptCards = document.querySelectorAll('.prompt-card');
+    const promptCountDisplay = document.getElementById('prompts-count');
+    const promptNoResultsMsg = document.getElementById('prompts-no-results');
+
+    if (promptCards.length > 0 && (promptSearchInput || promptFilterChips.length > 0)) {
+        let activePromptCat = 'todos';
+
+        function filterPrompts() {
+            const query = promptSearchInput ? promptSearchInput.value.toLowerCase().trim() : '';
+            let visibleCount = 0;
+
+            promptCards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+                const body = card.querySelector('.prompt-box')?.textContent.toLowerCase() || '';
+                const category = (card.getAttribute('data-category') || '').toLowerCase();
+
+                const matchesQuery = !query || title.includes(query) || desc.includes(query) || body.includes(query);
+                const matchesCat = activePromptCat === 'todos' || category.includes(activePromptCat);
+
+                if (matchesQuery && matchesCat) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (promptCountDisplay) {
+                promptCountDisplay.textContent = `${visibleCount} prompt${visibleCount === 1 ? '' : 's'} pronto${visibleCount === 1 ? '' : 's'}`;
+            }
+
+            if (promptNoResultsMsg) {
+                promptNoResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        }
+
+        if (promptSearchInput) {
+            promptSearchInput.addEventListener('input', filterPrompts);
+        }
+
+        promptFilterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                promptFilterChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activePromptCat = chip.getAttribute('data-filter') || 'todos';
+                filterPrompts();
+            });
+        });
+
+        filterPrompts();
+    }
+
+    // 8. Formulário de Contato (contato.html)
     const contactForm = document.getElementById('contact-form');
     const formFeedback = document.getElementById('form-feedback');
 

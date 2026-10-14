@@ -4,114 +4,163 @@
     <!-- Página Inicial -->
     <url>
         <loc>https://supreme-20.github.io/RadarIA/</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
-    <!-- Páginas Principais -->
+    <!-- Páginas Principais (7) -->
     <url>
         <loc>https://supreme-20.github.io/RadarIA/ferramentas.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://supreme-20.github.io/RadarIA/comparador.html</loc>
+        <lastmod>2026-10-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://supreme-20.github.io/RadarIA/prompts.html</loc>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigos.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/categorias.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/sobre.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/contato.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
-    <!-- Ferramentas Dedicadas (10) -->
+    <!-- Ferramentas Dedicadas (15) -->
     <url>
         <loc>https://supreme-20.github.io/RadarIA/chatgpt.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/claude.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/cursor.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://supreme-20.github.io/RadarIA/deepseek.html</loc>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/elevenlabs.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://supreme-20.github.io/RadarIA/flux.html</loc>
+        <lastmod>2026-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://supreme-20.github.io/RadarIA/gamma.html</loc>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/gemini.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://supreme-20.github.io/RadarIA/kling.html</loc>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/midjourney.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/notion.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/perplexity.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/runway.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/suno.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://supreme-20.github.io/RadarIA/v0.html</loc>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -119,70 +168,70 @@
     <!-- Artigos e Guias (10) -->
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-chatgpt-prompts.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-chatgpt-vs-claude-vs-gemini.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-produtividade-trabalho.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-cursor-programacao-futuro.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-clonagem-voz-audio.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-ganhar-dinheiro-ia.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-musica-suno-ia.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-estudar.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-imagens.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/artigo-programacao.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -190,49 +239,49 @@
     <!-- Categorias (7) -->
     <url>
         <loc>https://supreme-20.github.io/RadarIA/categoria-escrita.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/categoria-imagens.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/categoria-marketing.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/categoria-produtividade.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/categoria-programacao.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/categoria-video.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <url>
         <loc>https://supreme-20.github.io/RadarIA/categoria-audio.html</loc>
-        <lastmod>2026-10-12</lastmod>
+        <lastmod>2026-10-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
