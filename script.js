@@ -1,41 +1,280 @@
-// RadarIA - Scripts Interativos
-
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Menu Mobile Toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('header nav');
+    // 1. Menu Mobile Moderno: Slide-over Drawer com Micro-animações e Backdrop Blur
+    function initModernMobileMenu() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (!menuToggle) return;
 
-    if (menuToggle && nav) {
+        // Injetar as 3 barras animadas no botão hambúrguer
+        menuToggle.innerHTML = `
+            <div class="hamburger-icon" aria-hidden="true">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        `;
+        menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+        menuToggle.setAttribute('aria-expanded', 'false');
+
+        // Determinar página atual para destacar o item ativo
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+        // Criar Overlay Escuro com Backdrop Blur se não existir
+        let overlay = document.querySelector('.mobile-drawer-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'mobile-drawer-overlay';
+            overlay.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(overlay);
+        }
+
+        // Criar Drawer Lateral se não existir
+        let drawer = document.querySelector('.mobile-drawer');
+        if (!drawer) {
+            drawer = document.createElement('aside');
+            drawer.className = 'mobile-drawer';
+            drawer.setAttribute('aria-label', 'Navegação mobile');
+            drawer.setAttribute('role', 'dialog');
+            drawer.setAttribute('aria-modal', 'true');
+
+            drawer.innerHTML = `
+                <div class="drawer-header">
+                    <a href="index.html" class="drawer-brand" aria-label="RadarIA Início">
+                        <img src="radaria_top_logo.png" alt="RadarIA" class="drawer-logo">
+                    </a>
+                    <button type="button" class="drawer-close-btn" aria-label="Fechar menu">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="drawer-search-box">
+                    <form action="ferramentas.html" method="GET" class="drawer-search-form">
+                        <span class="drawer-search-icon">🔍</span>
+                        <input type="text" name="busca" class="drawer-search-input" placeholder="Buscar ferramentas, prompts..." aria-label="Buscar no RadarIA">
+                    </form>
+                </div>
+
+                <div class="drawer-scrollable">
+                    <div class="drawer-nav-section">
+                        <span class="drawer-section-title">EXPLORAR RADAR</span>
+                        
+                        <a href="ferramentas.html" class="drawer-nav-item ${currentPath === 'ferramentas.html' ? 'active' : ''}">
+                            <div class="drawer-nav-icon icon-blue">⚡</div>
+                            <div class="drawer-nav-text">
+                                <span class="drawer-nav-title">Ferramentas de IA</span>
+                                <span class="drawer-nav-desc">15 soluções testadas e catalogadas</span>
+                            </div>
+                            <span class="drawer-nav-arrow">›</span>
+                        </a>
+
+                        <a href="comparador.html" class="drawer-nav-item ${currentPath === 'comparador.html' ? 'active' : ''}">
+                            <div class="drawer-nav-icon icon-indigo">⚔️</div>
+                            <div class="drawer-nav-text">
+                                <div class="drawer-title-row">
+                                    <span class="drawer-nav-title">Comparador Direto</span>
+                                    <span class="drawer-badge badge-new">Novo</span>
+                                </div>
+                                <span class="drawer-nav-desc">Duelos de IAs lado a lado</span>
+                            </div>
+                            <span class="drawer-nav-arrow">›</span>
+                        </a>
+
+                        <a href="prompts.html" class="drawer-nav-item ${currentPath === 'prompts.html' ? 'active' : ''}">
+                            <div class="drawer-nav-icon icon-emerald">📋</div>
+                            <div class="drawer-nav-text">
+                                <div class="drawer-title-row">
+                                    <span class="drawer-nav-title">Prompt Hub</span>
+                                    <span class="drawer-badge badge-pop">1-Clique</span>
+                                </div>
+                                <span class="drawer-nav-desc">Comandos profissionais testados</span>
+                            </div>
+                            <span class="drawer-nav-arrow">›</span>
+                        </a>
+
+                        <a href="categorias.html" class="drawer-nav-item ${currentPath === 'categorias.html' ? 'active' : ''}">
+                            <div class="drawer-nav-icon icon-amber">🏷️</div>
+                            <div class="drawer-nav-text">
+                                <span class="drawer-nav-title">Categorias</span>
+                                <span class="drawer-nav-desc">Explore por especialidade</span>
+                            </div>
+                            <span class="drawer-nav-arrow">›</span>
+                        </a>
+
+                        <a href="artigos.html" class="drawer-nav-item ${currentPath === 'artigos.html' || currentPath.startsWith('artigo-') ? 'active' : ''}">
+                            <div class="drawer-nav-icon icon-purple">📰</div>
+                            <div class="drawer-nav-text">
+                                <div class="drawer-title-row">
+                                    <span class="drawer-nav-title">Artigos & Guias</span>
+                                    <span class="drawer-badge badge-info">10 Guias</span>
+                                </div>
+                                <span class="drawer-nav-desc">Análises aprofundadas e tutoriais</span>
+                            </div>
+                            <span class="drawer-nav-arrow">›</span>
+                        </a>
+                    </div>
+
+                    <div class="drawer-nav-section">
+                        <span class="drawer-section-title">CATEGORIAS EM ALTA</span>
+                        <div class="drawer-categories-pills">
+                            <a href="categoria-escrita.html" class="drawer-cat-pill">✍️ Escrita</a>
+                            <a href="categoria-imagens.html" class="drawer-cat-pill">🎨 Imagens</a>
+                            <a href="categoria-programacao.html" class="drawer-cat-pill">💻 Código</a>
+                            <a href="categoria-video.html" class="drawer-cat-pill">🎬 Vídeo</a>
+                            <a href="categoria-audio.html" class="drawer-cat-pill">🎙️ Áudio</a>
+                            <a href="categoria-produtividade.html" class="drawer-cat-pill">⚡ Produtividade</a>
+                        </div>
+                    </div>
+
+                    <div class="drawer-nav-section">
+                        <span class="drawer-section-title">INSTITUCIONAL</span>
+                        
+                        <a href="sobre.html" class="drawer-nav-item ${currentPath === 'sobre.html' ? 'active' : ''}">
+                            <div class="drawer-nav-icon icon-slate">ℹ️</div>
+                            <div class="drawer-nav-text">
+                                <span class="drawer-nav-title">Sobre o RadarIA</span>
+                                <span class="drawer-nav-desc">Nossa proposta e curadoria</span>
+                            </div>
+                            <span class="drawer-nav-arrow">›</span>
+                        </a>
+
+                        <a href="contato.html" class="drawer-nav-item ${currentPath === 'contato.html' ? 'active' : ''}">
+                            <div class="drawer-nav-icon icon-cyan">✉️</div>
+                            <div class="drawer-nav-text">
+                                <span class="drawer-nav-title">Contato</span>
+                                <span class="drawer-nav-desc">Dúvidas, parcerias ou sugestões</span>
+                            </div>
+                            <span class="drawer-nav-arrow">›</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="drawer-footer">
+                    <a href="comparador.html" class="drawer-cta-primary">
+                        <span>⚔️ Duelo de IAs: Comparar Agora</span>
+                    </a>
+                    <div class="drawer-footer-credits">
+                        <span>RadarIA ⚡ O portal definitivo de inteligência artificial</span>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(drawer);
+        }
+
+        const closeBtn = drawer.querySelector('.drawer-close-btn');
+
+        function openMenu() {
+            drawer.classList.add('is-open');
+            overlay.classList.add('is-visible');
+            menuToggle.classList.add('is-active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('drawer-open');
+
+            // Animar entrada fluida dos itens
+            const items = drawer.querySelectorAll('.drawer-nav-item, .drawer-cat-pill');
+            items.forEach((item, index) => {
+                item.style.animation = `drawerItemFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) ${0.03 + index * 0.02}s backwards`;
+            });
+        }
+
+        function closeMenu() {
+            drawer.classList.remove('is-open');
+            overlay.classList.remove('is-visible');
+            menuToggle.classList.remove('is-active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('drawer-open');
+            drawer.style.transform = '';
+        }
+
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            nav.classList.toggle('is-open');
-            const isOpen = nav.classList.contains('is-open');
-            menuToggle.setAttribute('aria-expanded', isOpen);
-            menuToggle.innerHTML = isOpen ? '✕' : '☰';
-        });
-
-        // Fechar ao clicar fora do menu
-        document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-                if (nav.classList.contains('is-open')) {
-                    nav.classList.remove('is-open');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    menuToggle.innerHTML = '☰';
-                }
+            if (drawer.classList.contains('is-open')) {
+                closeMenu();
+            } else {
+                openMenu();
             }
         });
 
-        // Fechar ao clicar em qualquer link da navegação
-        nav.querySelectorAll('a').forEach(link => {
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeMenu);
+        }
+
+        overlay.addEventListener('click', closeMenu);
+
+        // Fechar com tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+                closeMenu();
+            }
+        });
+
+        // Fechar ao clicar em qualquer link interno
+        drawer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                if (nav.classList.contains('is-open')) {
-                    nav.classList.remove('is-open');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    menuToggle.innerHTML = '☰';
-                }
+                closeMenu();
             });
         });
+
+        // Busca rápida no Drawer com redirecionamento inteligente
+        const drawerSearchForm = drawer.querySelector('.drawer-search-form');
+        const drawerSearchInput = drawer.querySelector('.drawer-search-input');
+        if (drawerSearchForm && drawerSearchInput) {
+            drawerSearchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const term = drawerSearchInput.value.trim();
+                if (!term) return;
+                closeMenu();
+
+                const isToolsPage = window.location.pathname.endsWith('ferramentas.html') || 
+                                    window.location.pathname.endsWith('index.html');
+                const pageSearch = document.getElementById('tool-search');
+
+                if (isToolsPage && pageSearch) {
+                    pageSearch.value = term;
+                    pageSearch.focus();
+                    window.filterToolsFn && window.filterToolsFn();
+                    pageSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    window.location.href = `ferramentas.html?busca=${encodeURIComponent(term)}`;
+                }
+            });
+        }
+
+        // Gesto de Swipe para a direita no celular (fechamento natural por toque)
+        let touchStartX = 0;
+        let touchCurrentX = 0;
+
+        drawer.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchCurrentX = touchStartX;
+        }, { passive: true });
+
+        drawer.addEventListener('touchmove', (e) => {
+            touchCurrentX = e.touches[0].clientX;
+            const diff = touchCurrentX - touchStartX;
+            if (diff > 0) {
+                drawer.style.transform = `translateX(${diff}px)`;
+            }
+        }, { passive: true });
+
+        drawer.addEventListener('touchend', () => {
+            const diff = touchCurrentX - touchStartX;
+            drawer.style.transform = '';
+            if (diff > 75) {
+                closeMenu();
+            }
+        });
+
+        // Fechar automaticamente se a tela for redimensionada para desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && drawer.classList.contains('is-open')) {
+                closeMenu();
+            }
+        });
     }
+
+    initModernMobileMenu();
 
     // 2. Sistema de Favoritos (LocalStorage)
     const STORAGE_KEY = 'radaria_user_favorites';
@@ -183,6 +422,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 filterTools();
             });
         });
+
+        // Leitura de parâmetros de busca via URL (ex: ?busca=deepseek ou ?q=deepseek)
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryParam = urlParams.get('busca') || urlParams.get('q');
+        if (queryParam && searchInput) {
+            searchInput.value = queryParam;
+        }
 
         initFavorites();
         filterTools();
