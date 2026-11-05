@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://supreme-20.github.io/RadarIA/sitemap.xml
+Sitemap: https://portalradar-ia.site/sitemap.xml

@@ -4,19 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const menuToggle = document.querySelector('.menu-toggle');
         if (!menuToggle) return;
 
-        // Injetar as 3 barras animadas no botão hambúrguer
-        menuToggle.innerHTML = `
-            <div class="hamburger-icon" aria-hidden="true">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </div>
-        `;
+        // Injetar as 3 barras animadas no botão hambúrguer se ainda não existirem
+        if (!menuToggle.querySelector('.hamburger-icon')) {
+            menuToggle.innerHTML = `
+                <div class="hamburger-icon" aria-hidden="true">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            `;
+        }
         menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
         menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-controls', 'mobile-drawer');
 
         // Determinar página atual para destacar o item ativo
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        let currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        if (currentPath && !currentPath.includes('.')) {
+            currentPath += '.html';
+        }
 
         // Criar Overlay Escuro com Backdrop Blur se não existir
         let overlay = document.querySelector('.mobile-drawer-overlay');
@@ -31,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let drawer = document.querySelector('.mobile-drawer');
         if (!drawer) {
             drawer = document.createElement('aside');
+            drawer.id = 'mobile-drawer';
             drawer.className = 'mobile-drawer';
             drawer.setAttribute('aria-label', 'Navegação mobile');
             drawer.setAttribute('role', 'dialog');
@@ -40,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="drawer-header">
                     <a href="index.html" class="drawer-brand" aria-label="RadarIA Início">
                         <img src="radaria_top_logo.png" alt="RadarIA" class="drawer-logo">
+                        <span class="drawer-status-pill">
+                            <span class="status-indicator"></span>Radar IA
+                        </span>
                     </a>
                     <button type="button" class="drawer-close-btn" aria-label="Fechar menu">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -52,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="drawer-search-box">
                     <form action="ferramentas.html" method="GET" class="drawer-search-form">
                         <span class="drawer-search-icon">🔍</span>
-                        <input type="text" name="busca" class="drawer-search-input" placeholder="Buscar ferramentas, prompts..." aria-label="Buscar no RadarIA">
+                        <input type="text" name="busca" class="drawer-search-input" placeholder="Buscar 15 IAs, prompts, guias..." aria-label="Buscar no RadarIA" autocomplete="off">
+                        <button type="submit" class="drawer-search-submit">Buscar</button>
                     </form>
                 </div>
 
@@ -118,12 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="drawer-nav-section">
                         <span class="drawer-section-title">CATEGORIAS EM ALTA</span>
                         <div class="drawer-categories-pills">
-                            <a href="categoria-escrita.html" class="drawer-cat-pill">✍️ Escrita</a>
-                            <a href="categoria-imagens.html" class="drawer-cat-pill">🎨 Imagens</a>
-                            <a href="categoria-programacao.html" class="drawer-cat-pill">💻 Código</a>
-                            <a href="categoria-video.html" class="drawer-cat-pill">🎬 Vídeo</a>
-                            <a href="categoria-audio.html" class="drawer-cat-pill">🎙️ Áudio</a>
-                            <a href="categoria-produtividade.html" class="drawer-cat-pill">⚡ Produtividade</a>
+                            <a href="categoria-escrita.html" class="drawer-cat-pill ${currentPath === 'categoria-escrita.html' ? 'active' : ''}">✍️ Escrita</a>
+                            <a href="categoria-imagens.html" class="drawer-cat-pill ${currentPath === 'categoria-imagens.html' ? 'active' : ''}">🎨 Imagens</a>
+                            <a href="categoria-programacao.html" class="drawer-cat-pill ${currentPath === 'categoria-programacao.html' ? 'active' : ''}">💻 Código</a>
+                            <a href="categoria-video.html" class="drawer-cat-pill ${currentPath === 'categoria-video.html' ? 'active' : ''}">🎬 Vídeo</a>
+                            <a href="categoria-audio.html" class="drawer-cat-pill ${currentPath === 'categoria-audio.html' ? 'active' : ''}">🎙️ Áudio</a>
+                            <a href="categoria-produtividade.html" class="drawer-cat-pill ${currentPath === 'categoria-produtividade.html' ? 'active' : ''}">⚡ Produtividade</a>
                         </div>
                     </div>
 
