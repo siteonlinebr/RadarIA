@@ -669,4 +669,87 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 600);
         });
     }
+
+    // 9. Modo Escuro (Dark Mode) Nativo com Persistência em LocalStorage
+    function initThemeMode() {
+        const THEME_KEY = 'radaria_dark_theme';
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const themeBtn = document.getElementById('theme-toggle-btn');
+
+        function applyTheme(isDark) {
+            if (isDark) {
+                document.body.classList.add('dark-theme');
+                if (themeBtn) themeBtn.textContent = '☀️';
+            } else {
+                document.body.classList.remove('dark-theme');
+                if (themeBtn) themeBtn.textContent = '🌙';
+            }
+        }
+
+        // Aplicar estado inicial
+        if (savedTheme === 'true' || (savedTheme === null && prefersDark)) {
+            applyTheme(true);
+        } else {
+            applyTheme(false);
+        }
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const isCurrentlyDark = document.body.classList.contains('dark-theme');
+                const newDarkState = !isCurrentlyDark;
+                applyTheme(newDarkState);
+                localStorage.setItem(THEME_KEY, newDarkState.toString());
+            });
+        }
+    }
+    initThemeMode();
+
+    // 10. Top Announcement Bar (Fechar e Lembrar Escolha)
+    const announcementBar = document.getElementById('announcement-bar');
+    const announcementClose = document.getElementById('announcement-close');
+    const ANNOUNCEMENT_KEY = 'radaria_announcement_closed_v1';
+
+    if (announcementBar) {
+        if (localStorage.getItem(ANNOUNCEMENT_KEY) === 'true') {
+            announcementBar.style.display = 'none';
+        }
+
+        if (announcementClose) {
+            announcementClose.addEventListener('click', () => {
+                announcementBar.style.display = 'none';
+                localStorage.setItem(ANNOUNCEMENT_KEY, 'true');
+            });
+        }
+    }
+
+    // 11. Seletor Rápido de Necessidade ("O que você quer fazer hoje?")
+    const intentBtns = document.querySelectorAll('.intent-btn');
+    if (intentBtns.length > 0) {
+        intentBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const intent = btn.getAttribute('data-intent');
+                const isAlreadyActive = btn.classList.contains('active');
+
+                // Limpar todos os botões de intenção
+                intentBtns.forEach(b => b.classList.remove('active'));
+
+                if (!isAlreadyActive && intent) {
+                    btn.classList.add('active');
+
+                    // Acionar o filtro de categoria correspondente
+                    const matchingFilterChip = document.querySelector(`.filter-chip[data-filter="${intent}"]`);
+                    if (matchingFilterChip) {
+                        matchingFilterChip.click();
+                        matchingFilterChip.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else {
+                    // Voltar para "Todas"
+                    const allChip = document.querySelector('.filter-chip[data-filter="todas"]');
+                    if (allChip) allChip.click();
+                }
+            });
+        });
+    }
 });
+

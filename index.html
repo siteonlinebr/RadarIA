@@ -38,6 +38,16 @@
 
 <body>
 
+    <!-- 1. Top Announcement Bar (Novidade em Destaque) -->
+    <div id="announcement-bar" class="announcement-bar">
+        <div class="announcement-content">
+            <span class="announcement-badge">🔥 Em Alta</span>
+            <span class="announcement-text">Novo Duelo no Comparador: <strong>Runway ML vs Kling AI</strong> — Quem cria os melhores vídeos?</span>
+            <a href="comparador.html" class="announcement-link">Ver Comparação Completa →</a>
+        </div>
+        <button type="button" class="announcement-close" id="announcement-close" aria-label="Fechar aviso">✕</button>
+    </div>
+
     <header>
         <div class="logo">
             <a href="index.html">
@@ -45,13 +55,19 @@
             </a>
         </div>
 
-        <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-drawer">
-            <span class="hamburger-icon" aria-hidden="true">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </span>
-        </button>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Alternar tema claro/escuro" title="Alternar Modo Escuro">
+                🌙
+            </button>
+
+            <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-drawer">
+                <span class="hamburger-icon" aria-hidden="true">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </span>
+            </button>
+        </div>
 
         <nav>
             <a href="ferramentas.html">Ferramentas</a>
@@ -64,16 +80,79 @@
         </nav>
     </header>
 
+    <!-- 2. AI Radar Live Ticker (Movimento Contínuo em Tempo Real) -->
+    <div class="live-ticker-container">
+        <div class="live-ticker-bar">
+            <div class="live-ticker-badge">
+                <span class="ticker-pulse-dot"></span>
+                <span>Radar Live</span>
+            </div>
+            <div class="live-ticker-track">
+                <div class="live-ticker-content">
+                    <a href="deepseek.html" class="ticker-item">
+                        <span>🚀</span>
+                        <span><strong>DeepSeek V3:</strong> Modelo open-source com raciocínio de ponta 100% grátis</span>
+                    </a>
+                    <span class="ticker-separator">✦</span>
+                    <a href="comparador.html" class="ticker-item">
+                        <span>⚔️</span>
+                        <span><strong>Cursor vs Copilot:</strong> Por que programadores estão migrando em massa</span>
+                    </a>
+                    <span class="ticker-separator">✦</span>
+                    <a href="prompts.html" class="ticker-item">
+                        <span>📋</span>
+                        <span><strong>Prompt Hub:</strong> 40 comandos profissionais para copiar em 1 clique</span>
+                    </a>
+                    <span class="ticker-separator">✦</span>
+                    <a href="flux.html" class="ticker-item">
+                        <span>🎨</span>
+                        <span><strong>FLUX.1:</strong> A nova referência global em fotorrealismo e tipografia</span>
+                    </a>
+                    <span class="ticker-separator">✦</span>
+                    <a href="artigo-produtividade-trabalho.html" class="ticker-item">
+                        <span>⚡</span>
+                        <span><strong>Guia Prático:</strong> 5 passos para dobrar sua produtividade diária com IA</span>
+                    </a>
+                    <span class="ticker-separator">✦</span>
+                    <!-- Duplicação para loop contínuo infinito -->
+                    <a href="deepseek.html" class="ticker-item">
+                        <span>🚀</span>
+                        <span><strong>DeepSeek V3:</strong> Modelo open-source com raciocínio de ponta 100% grátis</span>
+                    </a>
+                    <span class="ticker-separator">✦</span>
+                    <a href="comparador.html" class="ticker-item">
+                        <span>⚔️</span>
+                        <span><strong>Cursor vs Copilot:</strong> Por que programadores estão migrando em massa</span>
+                    </a>
+                    <span class="ticker-separator">✦</span>
+                    <a href="prompts.html" class="ticker-item">
+                        <span>📋</span>
+                        <span><strong>Prompt Hub:</strong> 40 comandos profissionais para copiar em 1 clique</span>
+                    </a>
+                    <span class="ticker-separator">✦</span>
+                    <a href="flux.html" class="ticker-item">
+                        <span>🎨</span>
+                        <span><strong>FLUX.1:</strong> A nova referência global em fotorrealismo e tipografia</span>
+                    </a>
+                    <span class="ticker-separator">✦</span>
+                    <a href="artigo-produtividade-trabalho.html" class="ticker-item">
+                        <span>⚡</span>
+                        <span><strong>Guia Prático:</strong> 5 passos para dobrar sua produtividade diária com IA</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <main>
 
         <section class="tools">
 
-            <h1>Descubra ferramentas de inteligência artificial</h1>
+            <h1>Descubra as melhores inteligências artificiais</h1>
 
             <p>
-                Encontre ferramentas de IA para produtividade, criação de conteúdo,
-                programação, pesquisa, imagens, vídeos e outras tarefas.
-                Filtre por categoria, modelo de preço ou salve seus favoritos.
+                O portal definitivo para explorar, comparar e dominar as IAs que estão moldando o futuro.
+                Encontre a solução ideal para cada desafio do seu dia a dia.
             </p>
 
             <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px;">
@@ -86,6 +165,56 @@
                 <a href="prompts.html" class="btn-primary" style="background-color: #059669;">
                     📋 Prompts Prontos
                 </a>
+            </div>
+
+            <!-- 3. Seletor Rápido de Necessidade ("O que você quer fazer hoje?") -->
+            <div class="intent-selector-section">
+                <span class="intent-selector-title">🎯 Escolha rápida: o que você precisa resolver hoje?</span>
+                <div class="intent-buttons-grid">
+                    <button type="button" class="intent-btn" data-intent="escrita">
+                        <span class="intent-btn-icon">✍️</span>
+                        <span>Escrever Textos & E-mails</span>
+                    </button>
+                    <button type="button" class="intent-btn" data-intent="imagens">
+                        <span class="intent-btn-icon">🎨</span>
+                        <span>Criar Imagens Realistas</span>
+                    </button>
+                    <button type="button" class="intent-btn" data-intent="programacao">
+                        <span class="intent-btn-icon">💻</span>
+                        <span>Programar Código 10x Mais Rápido</span>
+                    </button>
+                    <button type="button" class="intent-btn" data-intent="video">
+                        <span class="intent-btn-icon">🎬</span>
+                        <span>Gerar & Editar Vídeos</span>
+                    </button>
+                    <button type="button" class="intent-btn" data-intent="produtividade">
+                        <span class="intent-btn-icon">⚡</span>
+                        <span>Automatizar Produtividade</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4. Números de Autoridade / Stats Counters -->
+            <div class="hero-stats-row">
+                <div class="hero-stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">IAs Catalogadas</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="hero-stat-item">
+                    <span class="stat-number">40</span>
+                    <span class="stat-label">Prompts Prontos</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="hero-stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Duelos Diretos</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="hero-stat-item">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Guias Completos</span>
+                </div>
             </div>
 
             <!-- Busca e Filtros Dinâmicos na Home -->
@@ -128,10 +257,42 @@
 
         </section>
 
+        <!-- 5. Card Especial Holográfico: "Destaque da Semana" -->
+        <section class="spotlight-section">
+            <div class="spotlight-card">
+                <div>
+                    <span class="spotlight-badge">★ Destaque da Semana</span>
+                    <div class="spotlight-title-row">
+                        <h3>DeepSeek V3 & R1</h3>
+                        <span class="spotlight-trend-tag">🔥 Mais Procurada</span>
+                        <span class="price-badge free" style="font-size: 11px;">100% Grátis</span>
+                    </div>
+                    <p class="spotlight-desc">
+                        A IA que surpreendeu o mercado global: modelo de código aberto com raciocínio matemático avançado, geração ultrarrápida de programação e qualidade comparável aos modelos pagos mais caros da indústria, totalmente acessível sem assinatura.
+                    </p>
+                    <div class="spotlight-features-list">
+                        <span class="spotlight-feature-item">💻 Especialista em Código & Debug</span>
+                        <span class="spotlight-feature-item">🧠 Cadeia de Raciocínio Profundo</span>
+                        <span class="spotlight-feature-item">⚡ Respostas Rápidas em Português</span>
+                    </div>
+                    <div class="spotlight-actions">
+                        <a href="deepseek.html" class="spotlight-cta-main">Conhecer Ficha Completa →</a>
+                        <a href="comparador.html" class="spotlight-cta-sec">Comparar com ChatGPT</a>
+                    </div>
+                </div>
+
+                <div class="spotlight-visual-preview">
+                    <span class="spotlight-visual-icon">🚀</span>
+                    <span class="spotlight-visual-score">#1 em Tendência</span>
+                    <span class="spotlight-visual-sub">Avaliação ★★★★★</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Grade de Ferramentas em Destaque -->
         <section class="content-hero">
 
-            <h2>Ferramentas em Destaque</h2>
+            <h2>Catálogo Geral de Ferramentas</h2>
 
             <div class="cards">
 
