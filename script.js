@@ -277,12 +277,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Fechar automaticamente se a tela for redimensionada para desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && drawer.classList.contains('is-open')) {
-                closeMenu();
+        // Destacar página atual na navbar do desktop
+        const desktopNavLinks = document.querySelectorAll('header nav a');
+        desktopNavLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPath || (currentPath === 'index.html' && href === 'index.html')) {
+                link.classList.add('active');
+            } else if (currentPath.startsWith('artigo-') && href === 'artigos.html') {
+                link.classList.add('active');
+            } else if (currentPath.startsWith('categoria-') && href === 'categorias.html') {
+                link.classList.add('active');
             }
         });
+
+        // Efeito dinâmico de scroll na navbar do PC (adiciona classe e sombra suave ao descer)
+        const headerEl = document.querySelector('header');
+        if (headerEl) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    headerEl.classList.add('header-scrolled');
+                } else {
+                    headerEl.classList.remove('header-scrolled');
+                }
+            }, { passive: true });
+        }
     }
 
     initModernMobileMenu();
